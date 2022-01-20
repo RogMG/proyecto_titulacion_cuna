@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "702718768174",
+    "project_id": "proyecto-cuna",
+    "storage_bucket": "proyecto-cuna.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702718768174:android:5b654709b59c738b209bbf",
+        "android_client_info": {
+          "package_name": "mx.edu.tecnologicodecoacalco.proyecto_titulacion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702718768174-qu0itrcukohhlmoh4ev67j72nligumpt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcad1eYUhbbgx2_FqMvxWZjnG5RXelB3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "702718768174-qu0itrcukohhlmoh4ev67j72nligumpt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

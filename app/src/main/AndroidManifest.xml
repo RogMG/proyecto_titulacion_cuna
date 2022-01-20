@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyectotitulacion">
         <activity
-            android:name=".MainActivity"
+            android:name=".login.view.view.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.view.view.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
