@@ -1,12 +1,17 @@
 package mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.view.viewmodel
 
 import android.app.Activity
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.data.model.LoginModel
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.data.model.RegisterModel
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.domain.usecase.SetRegisterAuthUseCase
 
 class RegisterActivityViewModel: ViewModel() {
+
+    val registerLiveData: MutableLiveData<RegisterModel> by lazy{
+        MutableLiveData<RegisterModel>()
+    }
 
     private val setRegisterUseCase by lazy {
         SetRegisterAuthUseCase()
@@ -20,8 +25,8 @@ class RegisterActivityViewModel: ViewModel() {
         phone: String,
         email: String,
         context: Activity
-    ): RegisterModel {
-        val useCase = setRegisterUseCase.invoke(
+    ) {
+        setRegisterUseCase.invoke(
             name = name,
             dadLastName = dadLastName,
             momLastName = momLastName,
@@ -29,15 +34,24 @@ class RegisterActivityViewModel: ViewModel() {
             phone = phone,
             email = email,
             context = context
-        ).onSuccessTask {
-
+        ).addOnCompleteListener{
+            if(it.isSuccessful){
+                registerLiveData.postValue(
+                    RegisterModel(
+                        true,
+                        "El usuario se creo con exito"
+                    )
+                )
+            }else{
+                registerLiveData.postValue(
+                    RegisterModel(
+                        true,
+                        "El usuario no se creo con exito"
+                    )
+                )
+            }
         }
 
-        return if(useCase.isSuccessful){
-            RegisterModel(true, "Si creamos el usuario")
-        }else{
-            RegisterModel(false, "No creamos el usuario")
-        }
 
 
     }

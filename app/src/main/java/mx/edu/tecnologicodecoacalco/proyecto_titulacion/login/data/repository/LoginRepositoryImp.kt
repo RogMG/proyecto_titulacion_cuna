@@ -14,7 +14,6 @@ class LoginRepositoryImp: LoginRepository {
     override fun getLogin(email: String, password: String, context: Activity): Task<AuthResult> {
         val auth = dataSource.getLoginFromService()
        return auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(context){ }
     }
 
 

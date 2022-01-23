@@ -36,43 +36,14 @@ class RegisterActivity : AppCompatActivity() {
             registerUser()
         }
 
+        registerActivityViewModel.registerLiveData.observe(this, {
+            Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+        })
+
     }
 
     fun registerUser(){
-//        if(
-//            binding.nameTextRegister.text.isEmpty() ||
-//            binding.dadTextRegister.text.isEmpty() ||
-//            binding.momTextRegister.text.isEmpty() ||
-//            binding.phoneTextRegister.text.isEmpty() ||
-//            binding.emailTextRegister.text.isEmpty() ||
-//            binding.passwordTextRegister.text.isEmpty() ||
-//            binding.confirmPasswordTextRegister.text.isEmpty()
-//        ){
-//            Toast.makeText(this, "Los passwords no coinciden", Toast.LENGTH_SHORT ).show()
-//        }else{
-//            if(binding.passwordTextRegister.text == binding.confirmPasswordTextRegister.text){
-//                val response = registerActivityViewModel.setRegisterUser(
-//                    binding.nameTextRegister.text.toString(),
-//                    binding.dadTextRegister.text.toString(),
-//                    binding.momTextRegister.text.toString(),
-//                    binding.phoneTextRegister.text.toString(),
-//                    binding.emailTextRegister.text.toString(),
-//                    binding.passwordTextRegister.text.toString(),
-//                    this
-//                )
-//                if(response.isSuccesful){
-//                    Toast.makeText(this, response.message, Toast.LENGTH_LONG).show()
-//                }else{
-//                    Toast.makeText(this, response.message, Toast.LENGTH_LONG).show()
-//                }
-//
-//            }else{
-//                Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT ).show()
-//            }
-//        }
-
-
-        val response = registerActivityViewModel.setRegisterUser(
+        registerActivityViewModel.setRegisterUser(
             name = binding.nameTextRegister.text.toString(),
             dadLastName = binding.dadTextRegister.text.toString(),
             momLastName = binding.momTextRegister.text.toString(),
@@ -81,15 +52,6 @@ class RegisterActivity : AppCompatActivity() {
             password = binding.passwordTextRegister.text.toString(),
             context = this
         )
-        if(response.isSuccesful){
-            Toast.makeText(this, response.message, Toast.LENGTH_LONG).show()
-        }else{
-            Toast.makeText(this, response.message, Toast.LENGTH_LONG).show()
-        }
-
-
-
-
     }
 
 }
