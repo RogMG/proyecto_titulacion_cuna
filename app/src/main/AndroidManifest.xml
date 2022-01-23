@@ -10,6 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyectotitulacion">
         <activity
+            android:name=".viewpager.FragmentsConsejos"
+            android:exported="false" />
+        <activity
+            android:name=".dashboard.Settings"
+            android:exported="false" />
+        <activity
+            android:name=".dashboard.HardwareConect"
+            android:exported="false" />
+        <activity
+            android:name=".dashboard.AppConect"
+            android:exported="false" />
+        <activity
+            android:name=".dashboard.BabyRegister"
+            android:exported="false" />
+        <activity
+            android:name=".dashboard.Dashboard"
+            android:exported="false" />
+        <activity
             android:name=".login.view.view.RegisterActivity"
             android:exported="false" />
         <activity
