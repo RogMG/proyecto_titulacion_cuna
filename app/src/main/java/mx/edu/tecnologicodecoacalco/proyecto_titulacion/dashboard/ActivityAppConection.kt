@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.R
 
-class Settings : AppCompatActivity() {
+class ActivityAppConection : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_settings)
+        setContentView(R.layout.activity_app_conection)
     }
 }

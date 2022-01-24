@@ -3,17 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Erasm/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/drawable/ic_conectaraplicacion.xml" value="0.2703125" />
-        <entry key="..\:/Users/Erasm/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/drawable/ic_conectarhardware.xml" value="0.2703125" />
-        <entry key="..\:/Users/Erasm/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
-        <entry key="..\:/Users/Erasm/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/activity_baby_register.xml" value="0.17481884057971014" />
-        <entry key="..\:/Users/Erasm/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/activity_dashboard.xml" value="0.17481884057971014" />
-        <entry key="..\:/Users/Erasm/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/activity_fragments_consejos.xml" value="0.17481884057971014" />
-        <entry key="..\:/Users/Erasm/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_consejo1.xml" value="0.17481884057971014" />
-        <entry key="..\:/Users/Erasm/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_consejo2.xml" value="0.17481884057971014" />
-        <entry key="..\:/Users/Erasm/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_consejo3.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/drawable/ic_agregarbebe.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/drawable/ic_ajustes.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/drawable/ic_conectaraplicacion.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/drawable/ic_conectarhardware.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/drawable/ic_default_dot.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/drawable/ic_selected_dot.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/drawable/ic_tab_selector.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/activity_app_conection.xml" value="0.14682539682539683" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/activity_baby_register.xml" value="0.16965811965811967" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/activity_dashboard.xml" value="0.30085470085470084" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/activity_fragments_consejos.xml" value="0.14536340852130325" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_consejo1.xml" value="0.22" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_consejo2.xml" value="0.14682539682539683" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_consejo3.xml" value="0.25" />
       </map>
     </option>
   </component>

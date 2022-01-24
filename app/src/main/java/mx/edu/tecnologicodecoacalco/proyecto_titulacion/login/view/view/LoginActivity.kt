@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.ActivityMainBinding
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.view.viewmodel.LoginActivityViewModel
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.viewpager.AdvicesActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -23,12 +24,9 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.loginButton.setOnClickListener {
-            getUserData()
-            loginActivitityViewModel.getLoginAuth(
-                userEmail,
-                userPassword,
-                this
-            )
+           // getUserLogin()
+            AdvicesActivity.launch(this)
+
         }
 
         binding.registerButton.setOnClickListener {
@@ -37,15 +35,23 @@ class LoginActivity : AppCompatActivity() {
 
         loginActivitityViewModel.loginLiveData.observe(this, {
             Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+            AdvicesActivity.launch(this)
         }
         )
-
-
     }
 
-    fun getUserData(){
-        userEmail = binding.emailTextLogin.text.toString()
-        userPassword = binding.passwordTextLogin.text.toString()
+    private fun getUserLogin() {
+        if (binding.emailTextLogin.text.isEmpty() || binding.passwordTextLogin.text.isEmpty()) {
+            Toast.makeText(this, "Porfavor, llena los campos", Toast.LENGTH_LONG).show()
+        } else {
+            userEmail = binding.emailTextLogin.text.toString()
+            userPassword = binding.passwordTextLogin.text.toString()
+            loginActivitityViewModel.getLoginAuth(
+                userEmail,
+                userPassword,
+                this
+            )
+        }
     }
 
 
