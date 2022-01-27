@@ -66,8 +66,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="264dp"
+        android:layout_height="247dp"
         android:layout_marginBottom="150dp"
         app:layout_constraintBottom_toTopOf="@+id/email_text_login"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,5 +75,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.8"
         app:layout_constraintVertical_chainStyle="packed"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/logo1" />
 </androidx.constraintlayout.widget.ConstraintLayout>
