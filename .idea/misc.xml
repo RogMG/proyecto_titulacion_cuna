@@ -16,11 +16,15 @@
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/activity_fragments_consejos.xml" value="0.14536340852130325" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_advices.xml" value="0.25" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_app_conection.xml" value="0.30085470085470084" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_baby_register.xml" value="0.30085470085470084" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_consejo1.xml" value="0.22" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_consejo2.xml" value="0.14682539682539683" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_consejo3.xml" value="0.25" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_monitor.xml" value="0.28931623931623934" />
-        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.30085470085470084" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_settings.xml" value="0.16880341880341881" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1" />
       </map>
     </option>
   </component>

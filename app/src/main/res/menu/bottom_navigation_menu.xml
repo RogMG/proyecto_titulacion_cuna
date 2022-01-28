@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/monitor_item"
+        android:id="@+id/monitor_fragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="@string/monitor"/>
     <item
-        android:id="@+id/link_device_item"
+        android:id="@+id/app_conection_fragment"
         android:enabled="true"
         android:icon="@drawable/ic_conectarhardware"
         android:title="@string/vinculaci_n"
@@ -15,13 +15,13 @@
         android:title=""
         />
     <item
-        android:id="@+id/advices_item"
+        android:id="@+id/advices_fragment"
         android:enabled="true"
         android:icon="@drawable/ic_consejos"
         android:title="@string/consejos"
         />
     <item
-        android:id="@+id/settings_item"
+        android:id="@+id/settings_fragment"
         android:enabled="true"
         android:icon="@drawable/ic_ajustes"
         android:title="@string/ajustes" />
