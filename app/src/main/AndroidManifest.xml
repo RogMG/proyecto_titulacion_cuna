@@ -11,27 +11,19 @@
         android:theme="@style/Theme.Proyectotitulacion">
         <activity
             android:name=".viewpager.AdvicesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".dashboard.ActivitySettings"
-            android:exported="false" />
-        <activity
-            android:name=".dashboard.ActivityHardwareConection"
-            android:exported="false" />
-        <activity
-            android:name=".dashboard.ActivityAppConection"
-            android:exported="false" />
-        <activity
-            android:name=".dashboard.ActivityBabyRegister"
+            android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".dashboard.ActivityDashboard"
+            android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".login.view.view.RegisterActivity"
+            android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".login.view.view.LoginActivity"
+            android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

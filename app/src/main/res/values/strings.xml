@@ -3,4 +3,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="continuar">Continuar</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="consejos">Consejos</string>
+    <string name="agregar_beb">Agregar Bebé</string>
+    <string name="vincular_aplicaci_n">Vincular aplicación</string>
+    <string name="vincular_dispositivo">Vincular Dispositivo</string>
+    <string name="monitor">Monitor</string>
+    <string name="vinculaci_n">Vinculación</string>
+    <string name="agregar_beb_boton">Agregar bebé boton</string>
 </resources>

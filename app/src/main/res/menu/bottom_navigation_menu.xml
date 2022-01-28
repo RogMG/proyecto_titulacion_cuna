@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/monitor_item"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/monitor"/>
+    <item
+        android:id="@+id/link_device_item"
+        android:enabled="true"
+        android:icon="@drawable/ic_conectarhardware"
+        android:title="@string/vinculaci_n"
+        />
+    <item android:id="@+id/mplaceholder"
+        android:title=""
+        />
+    <item
+        android:id="@+id/advices_item"
+        android:enabled="true"
+        android:icon="@drawable/ic_consejos"
+        android:title="@string/consejos"
+        />
+    <item
+        android:id="@+id/settings_item"
+        android:enabled="true"
+        android:icon="@drawable/ic_ajustes"
+        android:title="@string/ajustes" />
+</menu>

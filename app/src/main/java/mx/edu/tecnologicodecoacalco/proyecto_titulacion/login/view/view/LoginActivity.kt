@@ -26,7 +26,6 @@ class LoginActivity : AppCompatActivity() {
         binding.loginButton.setOnClickListener {
            // getUserLogin()
             AdvicesActivity.launch(this)
-
         }
 
         binding.registerButton.setOnClickListener {
