@@ -39,14 +39,14 @@ class RegisterActivityViewModel: ViewModel() {
                 registerLiveData.postValue(
                     RegisterModel(
                         true,
-                        "El usuario se creo con exito"
+                        "El usuario no se creo con exito"
                     )
                 )
             }else{
                 registerLiveData.postValue(
                     RegisterModel(
                         true,
-                        "El usuario no se creo con exito"
+                        "El usuario se creo con exito"
                     )
                 )
             }
