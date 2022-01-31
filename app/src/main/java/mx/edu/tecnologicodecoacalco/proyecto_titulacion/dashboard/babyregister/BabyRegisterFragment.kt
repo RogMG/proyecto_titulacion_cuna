@@ -1,4 +1,4 @@
-package mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard
+package mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.babyregister
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

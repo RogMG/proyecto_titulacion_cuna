@@ -1,18 +1,15 @@
-package mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard
+package mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.appconection
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import mx.edu.tecnologicodecoacalco.proyecto_titulacion.R
-import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.FragmentConsejo3Binding
-import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.FragmentSettingsBinding
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.FragmentAppConectionBinding
 
-class SettingsFragment : Fragment() {
+class AppConectionFragment : Fragment() {
 
-    private var _binding: FragmentSettingsBinding? = null
+    private var _binding: FragmentAppConectionBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -22,9 +19,8 @@ class SettingsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSettingsBinding.inflate(inflater, container, false)
+        _binding = FragmentAppConectionBinding.inflate(inflater, container, false)
         val view = binding.root
-
 
 
         return view
@@ -34,5 +30,6 @@ class SettingsFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 
 }

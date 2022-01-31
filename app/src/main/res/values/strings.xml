@@ -11,4 +11,6 @@
     <string name="monitor">Monitor</string>
     <string name="vinculaci_n">Vinculación</string>
     <string name="agregar_beb_boton">Agregar bebé boton</string>
+    <string name="ingresa_el_sexo_de_tu_bebe">Ingresa el sexo de tu bebe</string>
+    <string name="sexo">Sexo</string>
 </resources>

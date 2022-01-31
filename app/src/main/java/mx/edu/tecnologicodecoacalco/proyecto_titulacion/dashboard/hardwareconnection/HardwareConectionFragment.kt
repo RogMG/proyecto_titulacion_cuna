@@ -1,18 +1,18 @@
-package mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard
+package mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.hardwareconnection
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.R
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.FragmentConsejo3Binding
-import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.FragmentMonitorBinding
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.FragmentHardwareConectBinding
 
+class HardwareConectionFragment : Fragment() {
 
-class MonitorFragment : Fragment() {
-
-    private var _binding: FragmentMonitorBinding? = null
+    private var _binding: FragmentHardwareConectBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -22,7 +22,7 @@ class MonitorFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentMonitorBinding.inflate(inflater, container, false)
+        _binding = FragmentHardwareConectBinding.inflate(inflater, container, false)
         val view = binding.root
 
         return view
