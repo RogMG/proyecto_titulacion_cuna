@@ -44,14 +44,23 @@ class RegisterActivity : AppCompatActivity() {
 
     fun registerUser(){
         registerActivityViewModel.setRegisterUser(
-            name = binding.nameTextRegister.text.toString(),
-            dadLastName = binding.dadTextRegister.text.toString(),
-            momLastName = binding.momTextRegister.text.toString(),
-            phone = binding.phoneTextRegister.text.toString(),
-            email = binding.emailTextRegister.text.toString(),
-            password = binding.passwordTextRegister.text.toString(),
+            name = "",
+            dadLastName = "",
+            momLastName = "",
+            phone = "",
+            email = "rogelio@example.com",
+            password = "rogelio",
             context = this
         )
+//        registerActivityViewModel.setRegisterUser(
+//            name = binding.nameTextRegister.text.toString(),
+//            dadLastName = binding.dadTextRegister.text.toString(),
+//            momLastName = binding.momTextRegister.text.toString(),
+//            phone = binding.phoneTextRegister.text.toString(),
+//            email = binding.emailTextRegister.text.toString(),
+//            password = binding.passwordTextRegister.text.toString(),
+//            context = this
+//        )
     }
 
 }

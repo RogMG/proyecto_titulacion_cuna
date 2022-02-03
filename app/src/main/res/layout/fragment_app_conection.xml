@@ -7,12 +7,29 @@
     tools:context=".dashboard.appconection.AppConectionFragment">
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/text_view_app_connection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fragment App Connection"
+        android:layout_marginBottom="16dp"
+        android:maxWidth="296dp"
+        android:text="Vincula un dipositivo alterno para mantenerte al día con las alertas!"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vincula dispositivo"
+        android:backgroundTint="@color/buttonColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/text_view_app_connection" />
 </androidx.constraintlayout.widget.ConstraintLayout>
