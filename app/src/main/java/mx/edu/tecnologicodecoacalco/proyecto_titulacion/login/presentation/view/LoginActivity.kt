@@ -1,11 +1,11 @@
-package mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.view.view
+package mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.presentation.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.ActivityMainBinding
-import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.view.viewmodel.LoginActivityViewModel
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.presentation.viewmodel.LoginActivityViewModel
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.viewpager.AdvicesActivity
 
 class LoginActivity : AppCompatActivity() {

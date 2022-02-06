@@ -1,11 +1,8 @@
-package mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.view.viewmodel
+package mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.presentation.viewmodel
 
 import android.app.Activity
-import android.app.AutomaticZenRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthResult
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.data.model.LoginModel
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.domain.usecase.GetLoginAuthUseCase
 

@@ -9,7 +9,7 @@ import mx.edu.tecnologicodecoacalco.proyecto_titulacion.R
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.advices.AdvicesFragment
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.appconection.AppConectionFragment
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.babyregister.BabyRegisterFragment
-import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.MonitorFragment
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.presentation.view.MonitorFragment
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.settings.SettingsFragment
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.ActivityDashboardBinding
 

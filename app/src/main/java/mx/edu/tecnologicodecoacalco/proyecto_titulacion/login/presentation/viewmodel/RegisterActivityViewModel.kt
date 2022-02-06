@@ -1,9 +1,8 @@
-package mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.view.viewmodel
+package mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.presentation.viewmodel
 
 import android.app.Activity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.data.model.LoginModel
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.data.model.RegisterModel
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.domain.usecase.SetRegisterAuthUseCase
 

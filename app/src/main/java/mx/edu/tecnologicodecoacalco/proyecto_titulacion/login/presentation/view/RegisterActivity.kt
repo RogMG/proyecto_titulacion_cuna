@@ -1,4 +1,4 @@
-package mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.view.view
+package mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.presentation.view
 
 import android.app.Activity
 import android.content.Intent
@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.ActivityRegisterBinding
-import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.view.viewmodel.RegisterActivityViewModel
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.presentation.viewmodel.RegisterActivityViewModel
 
 class RegisterActivity : AppCompatActivity() {
 

@@ -19,11 +19,11 @@
             android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".login.view.view.RegisterActivity"
+            android:name=".login.presentation.view.RegisterActivity"
             android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".login.view.view.LoginActivity"
+            android:name=".login.presentation.view.LoginActivity"
             android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
             android:exported="true">
             <intent-filter>
