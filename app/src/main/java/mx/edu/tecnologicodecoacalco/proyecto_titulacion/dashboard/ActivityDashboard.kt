@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.R
-import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.advices.AdvicesFragment
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.advices.presentation.view.AdvicesFragment
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.appconection.AppConectionFragment
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.babyregister.BabyRegisterFragment
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.presentation.view.MonitorFragment
@@ -30,7 +30,8 @@ class ActivityDashboard : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         binding.bottomNavigationBar.background = null
-        binding.bottomNavigationBar.menu.getItem(2).isEnabled = false;
+        binding.bottomNavigationBar.menu.getItem(2).isEnabled = false
+        replaceFragmentView(MonitorFragment())
         binding.bottomNavigationBar.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.monitor_fragment -> {

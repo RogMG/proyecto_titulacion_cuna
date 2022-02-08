@@ -21,13 +21,10 @@ import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.presentation.viewm
 class MonitorFragment : Fragment() {
 
     private var _binding: FragmentMonitorBinding? = null
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+
     private val binding get() = _binding!!
 
-    private val monitorAdapter by lazy {
-        MonitorAdapter()
-    }
+    private lateinit var monitorAdapter: MonitorAdapter
 
     val monitorFragmentViewModel: MonitorFragmentViewModel by viewModels()
 
@@ -38,12 +35,17 @@ class MonitorFragment : Fragment() {
     ): View? {
         _binding = FragmentMonitorBinding.inflate(inflater, container, false)
         val view = binding.root
-        monitorFragmentViewModel.getBabyInfo()
+        monitorAdapter = MonitorAdapter(
+            monitorFragmentViewModel.getBabyInfo(),
+            monitorFragmentViewModel.getFirstLpm()
+        )
+        monitorFragmentViewModel.getLpmBaby()
         binding.monitorRecyclerView.adapter = monitorAdapter
         binding.monitorRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
-        monitorFragmentViewModel.babyModel.observe(requireActivity(), {
-            monitorAdapter.sendMonitorData( it )
+        monitorFragmentViewModel.babyMonitor.observe(requireActivity(), {
+            monitorAdapter.sendLpmData(it)
         })
+
         return view
     }
 

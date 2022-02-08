@@ -6,16 +6,23 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.R
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.model.BabyDTO
 
-class MonitorAdapter() :
+class MonitorAdapter(private val babyModel: MutableList<BabyDTO>, private var babyData: MutableList<Entry> ) :
     RecyclerView.Adapter<MonitorAdapter.ViewHolder>() {
 
-    private lateinit var babyModel: MutableList<BabyDTO>
+    private var babyChart: LineData
 
-    fun sendMonitorData(babyModel: MutableList<BabyDTO>){
-        this.babyModel = babyModel
+    init {
+        babyChart = LineData(LineDataSet(babyData, "MonitorBaby"))
+    }
+
+    fun sendLpmData(list: MutableList<Entry>) {
+        babyChart =  LineData(LineDataSet(list, "MonitorBaby"))
         notifyDataSetChanged()
     }
 
@@ -25,23 +32,25 @@ class MonitorAdapter() :
         val chartText: LineChart = view.findViewById(R.id.baby_monitor_chart)
     }
 
-    // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.monitor_card_view, viewGroup, false)
 
         return ViewHolder(view)
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.nameText.text = babyModel[position].babyName
-        // Get element from your dataset at this position and replace the
-        // contents of the view with that element
+        viewHolder.chartText.xAxis.labelCount = 10
+        viewHolder.chartText.axisRight.isEnabled = false
+        viewHolder.chartText.xAxis.isEnabled = false
+        viewHolder.chartText.data = babyChart
+        viewHolder.chartText.invalidate()
+
+
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = babyModel.size
 
 }
+
