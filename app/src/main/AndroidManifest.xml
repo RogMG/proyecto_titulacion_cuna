@@ -7,25 +7,31 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Proyectotitulacion">
+        android:theme="@style/Theme.Proyectotitulacion"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".dashboard.monitor.presentation.view.UpdateBabyInfo"
+            android:exported="false" />
+        <activity
+            android:name=".dashboard.advices.presentation.view.Advices_Description"
+            android:exported="false" />
         <activity
             android:name=".viewpager.AdvicesActivity"
-            android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Proyectotitulacion.NoActionBar" />
         <activity
             android:name=".dashboard.ActivityDashboard"
-            android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Proyectotitulacion.NoActionBar" />
         <activity
             android:name=".login.presentation.view.RegisterActivity"
-            android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Proyectotitulacion.NoActionBar" />
         <activity
             android:name=".login.presentation.view.LoginActivity"
-            android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Proyectotitulacion.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
