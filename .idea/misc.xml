@@ -4,10 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Erasm/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/activity_advices.xml" value="0.19655797101449277" />
-        <entry key="..\:/Users/Erasm/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/activity_advices_description.xml" value="0.2" />
         <entry key="..\:/Users/Erasm/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/activity_dashboard.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/Erasm/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/activity_main.xml" value="0.19655797101449277" />
-        <entry key="..\:/Users/Erasm/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/activity_update_baby_info.xml" value="0.1526268115942029" />
         <entry key="..\:/Users/Erasm/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_advices.xml" value="0.19655797101449277" />
         <entry key="..\:/Users/Erasm/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_consejo1.xml" value="0.264" />
         <entry key="..\:/Users/Erasm/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_consejo2.xml" value="0.12360688956433637" />
@@ -38,6 +36,8 @@
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/fragment_settings.xml" value="0.25" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/layout/monitor_card_view.xml" value="0.67" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3141025641025641" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3141025641025641" />
       </map>
     </option>
   </component>
