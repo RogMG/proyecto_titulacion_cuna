@@ -1,8 +1,13 @@
 package mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.babyregister.presentation.viewmodel
 
+import android.net.Uri
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.babyregister.domain.usecase.SetRegisterBabyUseCase
+import java.util.*
 
 class BabyRegisterFragmentViewModel: ViewModel() {
 
@@ -14,6 +19,15 @@ class BabyRegisterFragmentViewModel: ViewModel() {
         MutableLiveData<Boolean>()
     }
 
+    val registerBabyWithImage by lazy {
+        MutableLiveData<String>()
+    }
+
+    val notificationAlerts by lazy {
+        MutableLiveData<Boolean>()
+    }
+
+
 
     fun registerBaby(
         email: String,
@@ -23,7 +37,8 @@ class BabyRegisterFragmentViewModel: ViewModel() {
         sexo: String,
         peso: String,
         edad: String,
-        hardwareVinculado: String
+        hardwareVinculado: String,
+        imageUuid: String
     ){
         val data = hashMapOf(
             "nombre" to nombre,
@@ -33,6 +48,7 @@ class BabyRegisterFragmentViewModel: ViewModel() {
             "monitor" to "0",
             "peso" to peso,
             "sexo" to sexo,
+            "imageId" to imageUuid,
             "hardwareVinculado" to hardwareVinculado
         )
         babyRegisterUseCase.invoke(email, data)
@@ -46,9 +62,25 @@ class BabyRegisterFragmentViewModel: ViewModel() {
 
     }
 
+    fun saveBabyPhoto(imageUri: Uri) {
+        val uuid = UUID.randomUUID().toString()
+        val storageReference = FirebaseStorage.getInstance().getReference("image/${uuid}")
+        storageReference.putFile(imageUri)
+                .addOnSuccessListener {
+                    registerBabyWithImage.postValue(uuid)
+                }.addOnFailureListener {
+                    notificationAlerts.postValue(false)
+                }
+
+
+    }
+
+    }
 
 
 
 
 
-}
+
+
+

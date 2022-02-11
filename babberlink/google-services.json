@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "891580212890",
+    "project_id": "proyecto-cuna-iot",
+    "storage_bucket": "proyecto-cuna-iot.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891580212890:android:3715420cd5dc362a9aa123",
+        "android_client_info": {
+          "package_name": "mx.edu.tecnologicodecoacalco.babberlink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891580212890-8t4vc5g6rl9l47v37v0kn3utjs9laafh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc9EFpuDfeXGZ8jOH_mjeHS7xms8zC-js"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "891580212890-8t4vc5g6rl9l47v37v0kn3utjs9laafh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891580212890:android:23cacc3afdf669b29aa123",
+        "android_client_info": {
+          "package_name": "mx.edu.tecnologicodecoacalco.proyecto_titulacion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891580212890-8t4vc5g6rl9l47v37v0kn3utjs9laafh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc9EFpuDfeXGZ8jOH_mjeHS7xms8zC-js"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "891580212890-8t4vc5g6rl9l47v37v0kn3utjs9laafh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -16,6 +16,7 @@
             android:id="@+id/imageViewBaby"
             android:layout_width="match_parent"
             android:layout_height="120dp"
+            android:scaleType="centerCrop"
             app:srcCompat="@drawable/bebe"
             android:layout_marginBottom="16dp"/>
 

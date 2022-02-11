@@ -36,11 +36,13 @@ class BabyRegisterFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private lateinit var imageAvatar: Bitmap
+    private var imageUri: Uri = Uri.EMPTY
 
     private val hardwareCode: String by lazy {
         ""
     }
+
+    private lateinit var email: String
 
     private val babyRegisterFragmentViewModel: BabyRegisterFragmentViewModel by viewModels()
 
@@ -51,12 +53,12 @@ class BabyRegisterFragment : Fragment() {
     ): View {
         _binding = FragmentBabyRegisterBinding.inflate(inflater, container, false)
         val view = binding.root
-
+        email = "rogelio@example.com"
         binding.imageViewBaby.setOnClickListener {
             getImageFromGallery()
         }
         binding.registerButtonBaby.setOnClickListener {
-            registerBaby()
+            uploadBabyPhoto()
         }
 
         babyRegisterFragmentViewModel.registerBabyResponse.observe(requireActivity(), {
@@ -68,11 +70,24 @@ class BabyRegisterFragment : Fragment() {
             }
         })
 
+        babyRegisterFragmentViewModel.registerBabyWithImage.observe(requireActivity(), {
+            registerBaby(it)
+        })
+
+        babyRegisterFragmentViewModel.notificationAlerts.observe(requireActivity(), {
+            if (it){
+                Toast.makeText(requireContext(), "Operacion Exitosa", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(requireContext(), "Hubo un error, porfavor intentelo mas tarde", Toast.LENGTH_LONG).show()
+
+            }
+        })
+
         return view
     }
 
     fun getImageFromGallery(){
-        val photoPickerIntent = Intent(Intent.ACTION_PICK)
+        val photoPickerIntent = Intent(Intent.ACTION_GET_CONTENT)
         photoPickerIntent.type = "image/*"
         startActivityForResult(photoPickerIntent, IMAGE_PICKER_CODE)
     }
@@ -81,8 +96,9 @@ class BabyRegisterFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode ==  Activity.RESULT_OK) {
             try {
-                val imageUri: Uri = data?.data ?: Uri.EMPTY
-                imageAvatar= MediaStore.Images.Media.getBitmap(requireContext().contentResolver, imageUri)
+                imageUri = data?.data?: Uri.EMPTY
+                Toast.makeText(requireContext(), imageUri.toString(), Toast.LENGTH_LONG).show()
+                val imageAvatar= MediaStore.Images.Media.getBitmap(requireContext().contentResolver, imageUri)
                 binding.imageViewBaby.setImageBitmap(imageAvatar)
             } catch (e: FileNotFoundException) {
                 e.printStackTrace()
@@ -93,26 +109,25 @@ class BabyRegisterFragment : Fragment() {
         }
     }
 
-    fun registerBaby(){
-        if(true){
-//            babyRegisterFragmentViewModel.registerBaby(
-//                "rogelio@example.com",
-//                nombre = binding.editTextBabyName.text.toString(),
-//                apellidoPaterno = binding.editTextBabyPatern.text.toString(),
-//                apellidoMaterno = binding.editTextBabyMatern.text.toString(),
-//                edad = binding.editTextEdadBaby.text.toString(),
-//                peso = binding.editTextBabayWight.text.toString(),
-//                sexo = binding.editTextBabySex.text.toString(),
-//                hardwareVinculado = hardwareCode
-//            )
+    fun uploadBabyPhoto(){
+            if (imageUri != Uri.EMPTY){
+                babyRegisterFragmentViewModel.saveBabyPhoto(imageUri)
+            }else{
+                registerBaby()
+            }
+    }
+
+    fun registerBaby(imageUuid: String = ""){
+        if(areFieldsValid()){
             babyRegisterFragmentViewModel.registerBaby(
-                "rogelio@example.com",
-                nombre = "Rogelio",
-                apellidoPaterno = "Martinez",
-                apellidoMaterno = "Gonzalez",
-                edad = "15",
-                peso = "1.6",
-                sexo = "Masculino",
+                email = email,
+                nombre = binding.editTextBabyName.text.toString(),
+                apellidoPaterno = binding.editTextBabyPatern.text.toString(),
+                apellidoMaterno = binding.editTextBabyMatern.text.toString(),
+                edad = binding.editTextEdadBaby.text.toString(),
+                peso = binding.editTextBabayWight.text.toString(),
+                sexo = binding.editTextBabySex.text.toString(),
+                imageUuid = imageUuid,
                 hardwareVinculado = hardwareCode
             )
         }else{
