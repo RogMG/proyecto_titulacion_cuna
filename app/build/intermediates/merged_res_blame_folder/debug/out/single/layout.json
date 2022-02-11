@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_monitor.xml",
+        "source": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\src\\main\\res\\layout\\fragment_monitor.xml"
+    },
+    {
+        "merged": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_consejo1.xml",
+        "source": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\src\\main\\res\\layout\\fragment_consejo1.xml"
+    },
+    {
+        "merged": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_register.xml",
+        "source": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\src\\main\\res\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_consejo2.xml",
+        "source": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\src\\main\\res\\layout\\fragment_consejo2.xml"
+    },
+    {
+        "merged": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_dashboard.xml",
+        "source": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\src\\main\\res\\layout\\activity_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_advices.xml",
+        "source": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\src\\main\\res\\layout\\activity_advices.xml"
+    },
+    {
+        "merged": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_app_conection.xml",
+        "source": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\src\\main\\res\\layout\\fragment_app_conection.xml"
+    },
+    {
+        "merged": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\monitor_card_view.xml",
+        "source": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\src\\main\\res\\layout\\monitor_card_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\advices_card_view.xml",
+        "source": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\src\\main\\res\\layout\\advices_card_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_consejo3.xml",
+        "source": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\src\\main\\res\\layout\\fragment_consejo3.xml"
+    },
+    {
+        "merged": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_hardware_conect.xml",
+        "source": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\src\\main\\res\\layout\\fragment_hardware_conect.xml"
+    },
+    {
+        "merged": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_advices.xml",
+        "source": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\src\\main\\res\\layout\\fragment_advices.xml"
+    },
+    {
+        "merged": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_settings.xml",
+        "source": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\src\\main\\res\\layout\\fragment_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_baby_register.xml",
+        "source": "C:\\Users\\Erasm\\Documents\\GitHub\\proyecto_titulacion_cuna\\app\\src\\main\\res\\layout\\fragment_baby_register.xml"
+    }
+]
