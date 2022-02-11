@@ -4,190 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFC107"
-    android:backgroundTint="#FFC107"
-    android:textAlignment="center"
-    android:orientation="vertical"
     tools:context=".viewpager.Consejo2">
 
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="55dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        android:id="@+id/image_advice_two"
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/hands_phone"
+        app:layout_constraintBottom_toTopOf="@+id/text_advice_two"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@mipmap/warningsignmedio" />
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Consejos a seguir"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView7"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/text_advice_two"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/advice_text_fragment_two"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="No todos los bebés que mueren por la noche lo hacen por el SMSL. Algunos fallecen por asfixia, por quedar envueltos entre mantas, bajo un cojín o de alguna manera que no son capaces de respirar correctamente."
-                android:textAlignment="center"
-                android:textColor="#000000" />
-
-            <TextView
-                android:id="@+id/text_view_app_connection"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FFC107"
-                android:text="Verifique estas condiciones de su bebe"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FF9800"
-                android:text="Fiebre"
-                android:textAlignment="center"
-                android:textColor="#212121"
-                android:textSize="16sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:text="La fiebre en niños suele ser causada por una infección. También puede ser causada por sustancias químicas, venenos, medicamentos, un ambiente demasiado caluroso o un nivel extremo de hiperactividad. Tome la temperatura del niño para ver si tiene fiebre. La mayoría de los pediatras considera como fiebre cualquier lectura de termómetro que supere los 38 °C."
-                    android:textAlignment="center"
-                    android:textColor="#000000" />
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="230dp"
-                    android:contentDescription="rcp"
-                    app:srcCompat="@mipmap/temparatura" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FF9800"
-                android:text="Espasmos, crisis convulsivas"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:text="Si el niño respira, acuéstelo de lado para evitar que se asfixie. Llame al 911 o a un número de emergencia en caso de una convulsión prolongada (de más de 5 minutos).  Asegúrese de que el niño esté protegido contra objetos que podrían lastimarlo. Asegúrese de protegerle la cabeza. No ponga nada en la boca del niño. Afloje toda prenda que esté ajustada. Comience la respiración asistida si el niño está morado o no respira."
-                    android:textAlignment="center"
-                    android:textColor="#000000" />
-
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@mipmap/convulsiones" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/textView189"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FF9800"
-                android:text="Desmayo"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:text="Revise las vías respiratorias del niño y que esté respirando. Si fuera necesario, llame al 911 y comience la respiración asistida y la RCP.  Si ha vomitado, dé vuelta al niño y póngalo de lado para evitar que se asfixie. Levante los pies por encima del nivel del corazón (unas 12 pulgadas o 30 cm)."
-                    android:textAlignment="center"
-                    android:textColor="#000000" />
-
-                <ImageView
-                    android:id="@+id/imageView5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@mipmap/desmayo" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/textView1894"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FF9800"
-                android:text="Repítalo"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:text="Si su bebé se está asfixiando y no puede respirar, toser, llorar o hablar, tome estas medidas. Pídale a alguien que llame al 911. DELE 5 PALMADAS FUERTES EN LA ESPALDA  TURNAR O ALTERNAR CON:  DELE 5 COMPRESIONES TORÁCCICAS (PECHO)  Alterne las palmadas en la espalda con las compresiones torácicas hasta que el objeto es expulsado o el bebé queda inconsciente o no responde, empiece con la RCP."
-                    android:textAlignment="center"
-                    android:textColor="#000000" />
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@mipmap/asfixcia" />
-            </LinearLayout>
-
-        </LinearLayout>
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@+id/image_advice_two" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

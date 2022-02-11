@@ -4,206 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFC107"
-    android:backgroundTint="#47D84D"
-    android:textAlignment="center"
     tools:context=".viewpager.Consejo3">
+
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="55dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="68dp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        android:id="@+id/image_advice_three"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/lifesavers_caretaking"
+        app:layout_constraintBottom_toTopOf="@+id/text_advice_three"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@mipmap/paloma" />
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Consejos basicos"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView7"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/text_advice_three"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/advice_text_fragment_three"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text='Como no sabemos la causa, pero sí las situaciones que pueden dificultar la respiración a los bebés en las que se pone a prueba su "alarma", la que debe hacer que puedan seguir respirando, os contamos qué hay que hacer para evitar esas situaciones:'
-                android:textAlignment="center"
-                android:textColor="#000000" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#4CAF50"
-                android:text="Poner al bebé a dormir boca arriba"
-                android:textAlignment="center"
-                android:textColor="#212121"
-                android:textSize="16sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:text="Poner al bebé a dormir de lado es cinco o más veces más seguro que ponerlo a dormir boca abajo, y por eso en muchos hospitales lo recomiendan así. Sin embargo, dormir boca arriba es el doble de seguro que dormir de lado (y en consecuencia, diez veces más seguro que dormir boca abajo)."
-                    android:textAlignment="center"
-                    android:textColor="#000000" />
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="rcp"
-                    app:srcCompat="@mipmap/bocaarriba" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#4CAF50"
-                android:text="Que el colchón sea firme"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:text='Los colchones blandos posibilitan que el bebé quede más "envuelto" y haya más riesgo de sofocación. La sabanita bajera debe quedar tirante, sin arrugas.'
-                    android:textAlignment="center"
-                    android:textColor="#000000" />
-
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@mipmap/colchonfirme" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/textView189"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#4CAF50"
-                android:text="No utilizar protectores, peluches, cojines ni mantas en la cuna"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:text="De igual modo, la cuna debe ser lo más espartana posible. Los protectores aumentan el peligro de asfixia del bebé y de atrapamiento. Los peluches son peligrosos por el riesgo de asfixia y los cojines y mantas tienen el mismo problema: son blandos, se pueden mover de sitio y pueden acabar encima de la cabeza del bebé."
-                    android:textAlignment="center"
-                    android:textColor="#000000" />
-
-                <ImageView
-                    android:id="@+id/imageView5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@mipmap/cunavacias" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/textView1894"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#4CAF50"
-                android:text="Evitar que el bebé pase demasiado calor"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:text="Es más habitual que pasen calor que frío, porque el miedo a que pasen frío nos lleva a abrigarles, a veces demasiado. Si les tapamos demasiado pueden llegar a respirar de manera más profunda, agotarse en el esfuerzo y sufrir un golpe de calor."
-                    android:textAlignment="center"
-                    android:textColor="#000000" />
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@mipmap/calorbebe" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/textView18941"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#4CAF50"
-                android:text="No fumar cerca del bebé, ni dormir con él si se fuma"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView632"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:text="El tabaco, cuando una persona fumadora duerme con el bebé, aumenta hasta en 9 veces el riesgo de muerte súbita, que también es muchísimo. Esto sucede hasta los 3 meses de vida, ya que a partir de entonces el riesgo es mucho menor. Fumar cerca de él, o en lugares donde luego estará el bebé (fumar cuando no está en el comedor, por ejemplo), también aumenta el riesgo de SMSL, además del riesgo de infecciones respiratorias."
-                    android:textAlignment="center"
-                    android:textColor="#000000" />
-
-                <ImageView
-                    android:id="@+id/imageView232"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@mipmap/nofumar" />
-            </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/image_advice_three" />
 
             <Button
                 android:id="@+id/next_button_advice_three"
@@ -214,13 +45,7 @@
                 android:text="@string/continuar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.924" />
-
-        </LinearLayout>
-    </ScrollView>
+                app:layout_constraintStart_toStartOf="parent" />
 
 
 

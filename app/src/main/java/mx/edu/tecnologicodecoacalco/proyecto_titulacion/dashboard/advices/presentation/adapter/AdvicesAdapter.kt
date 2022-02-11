@@ -9,8 +9,14 @@ import com.squareup.picasso.Picasso
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.advices.domain.model.AdvicesModelDTO
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.AdvicesCardViewBinding
 
-class AdvicesAdapter(private val dataList: MutableList<AdvicesModelDTO>): RecyclerView.Adapter<AdvicesAdapter.ViewHolder>(){
+class AdvicesAdapter(private val dataList: MutableList<AdvicesModelDTO> = mutableListOf()): RecyclerView.Adapter<AdvicesAdapter.ViewHolder>(){
 
+    fun addItems(list: MutableList<AdvicesModelDTO>){
+        if(dataList.isEmpty()){
+            dataList.addAll(list)
+        }
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = AdvicesCardViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)

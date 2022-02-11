@@ -13,4 +13,19 @@
     <string name="agregar_beb_boton">Agregar bebé boton</string>
     <string name="ingresa_el_sexo_de_tu_bebe">Ingresa el sexo de tu bebe</string>
     <string name="sexo">Sexo</string>
+
+    <string name="edad_placeholder">Edad: </string>
+    <string name="lpm">LPM:</string>
+    <string name="edad">Edad:</string>
+    <string name="sexo_label">Sexo:</string>
+    <string name="peso_kg">Peso(Kg):</string>
+    <string name="advice_text_fragment_two">Revisa periodicamente la app si no cuentas con el tiempo para estar con tu bebé</string>
+    <string name="advice_text_fragment_three">La mejor forma de prevenir un desastre es llevar a tu bebé periodicamente con un especialista, no dejes pasar las señales.</string>
+    <string name="cerrar_sesi_n">Cerrar Sesión</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="guardar_cambios">Guardar cambios</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido_paterno">Apellido Paterno</string>
+    <string name="apellido_materno">Apellido Materno</string>
+    <string name="celular">Celular</string>
 </resources>

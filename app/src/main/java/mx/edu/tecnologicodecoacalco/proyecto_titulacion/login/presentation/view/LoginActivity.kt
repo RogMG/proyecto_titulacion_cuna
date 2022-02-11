@@ -1,9 +1,15 @@
 package mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.presentation.view
 
+import android.media.MediaPlayer
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.view.View
 import android.widget.Toast
+import android.widget.VideoView
 import androidx.activity.viewModels
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.R
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.ActivityMainBinding
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.presentation.viewmodel.LoginActivityViewModel
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.viewpager.AdvicesActivity
@@ -22,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
        super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
+        startBackgroundVideo()
         binding.loginButton.setOnClickListener {
            // getUserLogin()
             AdvicesActivity.launch(this)
@@ -52,6 +58,22 @@ class LoginActivity : AppCompatActivity() {
             )
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        startBackgroundVideo()
+    }
+
+    private fun startBackgroundVideo(){
+        val videoview = binding.videoViewLogin
+        val uri: Uri = Uri.parse("android.resource://" + packageName + "/" + R.raw.baby_sleeping_video)
+        videoview.setVideoURI(uri)
+        videoview.setOnPreparedListener(MediaPlayer.OnPreparedListener { mp ->
+            mp.isLooping = true
+        })
+        videoview.start()
+    }
+
 
 
 }

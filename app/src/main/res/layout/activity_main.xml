@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".login.presentation.view.LoginActivity">
 
+
+    <VideoView
+        android:id="@+id/video_view_login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <EditText
         android:id="@+id/email_text_login"
         android:layout_width="0dp"
@@ -79,6 +89,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo1" />
+        app:srcCompat="@drawable/babber_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

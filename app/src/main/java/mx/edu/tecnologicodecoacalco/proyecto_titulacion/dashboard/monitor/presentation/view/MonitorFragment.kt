@@ -9,7 +9,10 @@ import android.widget.LinearLayout
 import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.R
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.model.BabyDTO
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.presentation.adapter.MonitorAdapter
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.presentation.viewmodel.MonitorFragmentViewModel
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.ActivityMainBinding
@@ -35,18 +38,31 @@ class MonitorFragment : Fragment() {
     ): View? {
         _binding = FragmentMonitorBinding.inflate(inflater, container, false)
         val view = binding.root
-        monitorAdapter = MonitorAdapter(
-            monitorFragmentViewModel.getBabyInfo(),
-            monitorFragmentViewModel.getFirstLpm()
-        )
-        monitorFragmentViewModel.getLpmBaby()
-        binding.monitorRecyclerView.adapter = monitorAdapter
-        binding.monitorRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
+        setupMonitorInView()
+        // Firebase.auth.currentUser?.email?.let { monitorFragmentViewModel.getBabyInfo(it) }
+        monitorFragmentViewModel.getBabyInfo("rogelio@example.com")
+
+        monitorFragmentViewModel.babyData.observe(requireActivity(), {
+            monitorAdapter.sendBabyData(it)
+            monitorFragmentViewModel.getLpmBaby("rogelio@example.com")
+        })
+
+        monitorFragmentViewModel.babyMonitorData.observe(requireActivity(), {
+            monitorFragmentViewModel.computeBabyData(it)
+        })
+
         monitorFragmentViewModel.babyMonitor.observe(requireActivity(), {
             monitorAdapter.sendLpmData(it)
         })
 
         return view
+    }
+
+    fun setupMonitorInView(){
+        monitorAdapter = MonitorAdapter()
+        binding.monitorRecyclerView.adapter = monitorAdapter
+        binding.monitorRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
+
     }
 
     override fun onDestroyView() {

@@ -31,13 +31,16 @@ class AdvicesFragment : Fragment() {
         _binding = FragmentAdvicesBinding.inflate(inflater, container, false)
         val view = binding.root
         advicesFragmentViewModel.getAdvicesData()
+        advicesAdapter = AdvicesAdapter()
+        binding.advicesRecyclerView.adapter = advicesAdapter
+        binding.advicesRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
+
         advicesFragmentViewModel.advicesData.observe(requireActivity(), {
-            advicesAdapter = AdvicesAdapter(it)
-            binding.advicesRecyclerView.adapter = advicesAdapter
-            binding.advicesRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
+            advicesAdapter.addItems(it)
         })
         return view
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

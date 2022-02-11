@@ -24,7 +24,7 @@
             android:exported="false" />
         <activity
             android:name=".login.presentation.view.LoginActivity"
-            android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
+            android:theme="@style/Theme.Proyectotitulacion.LoginTheme"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

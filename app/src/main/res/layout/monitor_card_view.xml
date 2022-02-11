@@ -10,62 +10,166 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/age_last_name_monitor2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/sex_last_name_monitor2"
+            app:layout_constraintStart_toStartOf="@+id/ltm_baby_text"
+            app:layout_constraintTop_toBottomOf="@+id/ltm_baby_text"
+            android:text="@string/edad" />
+
+        <TextView
+            android:id="@+id/sex_last_name_monitor2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/baby_monitor_chart"
+            app:layout_constraintStart_toStartOf="@+id/age_last_name_monitor2"
+            app:layout_constraintTop_toBottomOf="@+id/age_last_name_monitor2"
+            android:text="@string/sexo_label" />
 
         <TextView
             android:id="@+id/baby_name_edit_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="16dp"
-            android:text="Jorge"
-            android:textSize="36dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
             android:textColor="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/baby_monitor_chart"
-            app:layout_constraintEnd_toStartOf="@+id/ltm_baby"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:textSize="36dp"
+            app:layout_constraintBottom_toTopOf="@+id/father_last_name_monitor"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Jorge" />
 
+        <TextView
+            android:id="@+id/ltm_baby_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toStartOf="@+id/ltm_baby"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/dot_color_status"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/lpm" />
 
         <TextView
             android:id="@+id/ltm_baby"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
-            android:text="120LPM"
-            android:textSize="36dp"
             android:textColor="@color/black"
-            app:layout_constraintBaseline_toBaselineOf="@+id/baby_name_edit_text"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ltm_baby_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/baby_name_edit_text" />
+            app:layout_constraintStart_toEndOf="@+id/ltm_baby_text"
+            app:layout_constraintTop_toTopOf="@+id/ltm_baby_text"
+            tools:text="120" />
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/baby_monitor_chart"
             android:layout_width="0dp"
-            android:layout_height="140dp"
+            android:layout_height="200dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/baby_name_edit_text"
-             />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/dot_color_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            app:layout_constraintBottom_toBottomOf="@+id/ltm_baby"
-            app:layout_constraintEnd_toStartOf="@+id/ltm_baby"
-            app:layout_constraintTop_toTopOf="@+id/ltm_baby"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ltm_baby_text"
+            app:layout_constraintEnd_toStartOf="@+id/ltm_baby_text"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/baby_name_edit_text"
+            app:layout_constraintTop_toTopOf="@+id/ltm_baby_text"
             app:srcCompat="@drawable/ic_baseline_fiber_manual_record_24" />
+
+        <TextView
+            android:id="@+id/father_last_name_monitor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/weigth_text_monitor_baby"
+            app:layout_constraintEnd_toStartOf="@+id/mother_last_name_monitor"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/baby_name_edit_text"
+            tools:text="Perez" />
+
+        <TextView
+            android:id="@+id/age_last_name_monitor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/age_last_name_monitor2"
+            app:layout_constraintStart_toEndOf="@+id/age_last_name_monitor2"
+            app:layout_constraintTop_toTopOf="@+id/age_last_name_monitor2"
+            tools:text="Edad" />
+
+        <TextView
+            android:id="@+id/sex_last_name_monitor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/sex_last_name_monitor2"
+            app:layout_constraintStart_toEndOf="@+id/sex_last_name_monitor2"
+            app:layout_constraintTop_toTopOf="@+id/sex_last_name_monitor2"
+            tools:text="Masculino" />
+
+        <TextView
+            android:id="@+id/mother_last_name_monitor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/father_last_name_monitor"
+            app:layout_constraintEnd_toStartOf="@+id/age_last_name_monitor"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/father_last_name_monitor"
+            tools:text="Lopez" />
+
+        <TextView
+            android:id="@+id/weigth_monitor_baby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/weigth_text_monitor_baby"
+            app:layout_constraintStart_toEndOf="@+id/weigth_text_monitor_baby"
+            app:layout_constraintTop_toTopOf="@+id/weigth_text_monitor_baby"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="Peso" />
+
+        <TextView
+            android:id="@+id/weigth_text_monitor_baby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/baby_monitor_chart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/father_last_name_monitor"
+            android:text="@string/peso_kg" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
