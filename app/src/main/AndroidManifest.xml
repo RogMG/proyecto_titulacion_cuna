@@ -7,9 +7,15 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Proyectotitulacion">
+        android:theme="@style/Theme.Proyectotitulacion"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".dashboard.monitor.presentation.view.UpdateBabyInfo"
+            android:exported="false" />
+        <activity
+            android:name=".dashboard.advices.presentation.view.Advices_Description"
+            android:exported="false" />
         <activity
             android:name=".viewpager.AdvicesActivity"
             android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
