@@ -23,6 +23,7 @@ import androidx.core.graphics.drawable.toBitmap
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.R
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.settings.presentation.view.SettingsFragment
 
 
 class BabyRegisterFragment : Fragment() {
@@ -94,10 +95,9 @@ class BabyRegisterFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode ==  Activity.RESULT_OK) {
+        if (resultCode ==  Activity.RESULT_OK && requestCode == IMAGE_PICKER_CODE) {
             try {
                 imageUri = data?.data?: Uri.EMPTY
-                Toast.makeText(requireContext(), imageUri.toString(), Toast.LENGTH_LONG).show()
                 val imageAvatar= MediaStore.Images.Media.getBitmap(requireContext().contentResolver, imageUri)
                 binding.imageViewBaby.setImageBitmap(imageAvatar)
             } catch (e: FileNotFoundException) {

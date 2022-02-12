@@ -1,16 +1,20 @@
 package mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard
 
 import android.app.Activity
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent
+import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.R
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.advices.presentation.view.AdvicesFragment
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.appconection.AppConectionFragment
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.babyregister.presentation.view.BabyRegisterFragment
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.presentation.view.MonitorFragment
-import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.settings.SettingsFragment
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.settings.presentation.view.SettingsFragment
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.ActivityDashboardBinding
 
 class ActivityDashboard : AppCompatActivity() {
@@ -68,7 +72,7 @@ class ActivityDashboard : AppCompatActivity() {
         fragmentTransaction.replace(binding.containerViewsFragment.id, fragment)
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.setReorderingAllowed(false)
-        if(fragmentManager.backStackEntryCount > 3) {
+        if(fragmentManager.backStackEntryCount > 0) {
             fragmentManager.popBackStack()
         }
         fragmentTransaction.commit()

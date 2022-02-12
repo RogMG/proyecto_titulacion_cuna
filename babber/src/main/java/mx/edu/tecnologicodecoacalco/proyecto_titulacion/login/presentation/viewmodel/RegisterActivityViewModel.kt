@@ -5,54 +5,51 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.data.model.RegisterModel
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.domain.usecase.SetRegisterAuthUseCase
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.domain.usecase.SetRegisterInfoUseCase
+import java.io.Serializable
 
 class RegisterActivityViewModel: ViewModel() {
 
-    val registerLiveData: MutableLiveData<RegisterModel> by lazy{
-        MutableLiveData<RegisterModel>()
+    val notificationResponse by lazy{
+        MutableLiveData<Boolean>()
+    }
+
+    val registerAuthLiveData by lazy{
+        MutableLiveData<Boolean>()
     }
 
     private val setRegisterUseCase by lazy {
         SetRegisterAuthUseCase()
     }
 
+    private val setRegisterInfoUseCase by lazy {
+        SetRegisterInfoUseCase()
+    }
+
     fun setRegisterUser(
-        name: String,
-        dadLastName: String,
-        momLastName: String,
         password: String,
-        phone: String,
-        email: String,
-        context: Activity
+        email: String
     ) {
         setRegisterUseCase.invoke(
-            name = name,
-            dadLastName = dadLastName,
-            momLastName = momLastName,
             password = password,
-            phone = phone,
-            email = email,
-            context = context
+            email = email
         ).addOnCompleteListener{
             if(it.isSuccessful){
-                registerLiveData.postValue(
-                    RegisterModel(
-                        true,
-                        "El usuario se creo con exito"
-                    )
-                )
+                registerAuthLiveData.postValue(true)
             }else{
-                registerLiveData.postValue(
-                    RegisterModel(
-                        true,
-                        "El usuario no se creo con exito"
-                    )
-                )
+                notificationResponse.postValue(false)
             }
         }
+    }
 
-
-
+    fun setRegisterUserInfo(email: String, data: HashMap<String, Serializable>){
+        setRegisterInfoUseCase.invoke(
+            email, data
+        ).addOnSuccessListener {
+            notificationResponse.postValue(true)
+        }.addOnFailureListener {
+            notificationResponse.postValue(false)
+        }
     }
 
 

@@ -12,22 +12,12 @@ class SetRegisterAuthUseCase {
     }
 
     operator fun invoke(
-        name: String,
-        dadLastName: String,
-        momLastName: String,
-        password: String,
-        phone: String,
         email: String,
-        context: Activity
+        password: String
     ): Task<AuthResult> {
         return repository.setRegisterAuth(
-           name = name,
-           dadLastName = dadLastName,
-           momLastName = momLastName,
            password = password,
-           phone = phone,
-           email = email,
-           context = context
+           email = email
         )
 
     }
