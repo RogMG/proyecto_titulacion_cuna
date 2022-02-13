@@ -31,7 +31,7 @@ class AdvicesFragment : Fragment() {
         _binding = FragmentAdvicesBinding.inflate(inflater, container, false)
         val view = binding.root
         advicesFragmentViewModel.getAdvicesData()
-        advicesAdapter = AdvicesAdapter()
+        advicesAdapter = AdvicesAdapter(context = requireContext())
         binding.advicesRecyclerView.adapter = advicesAdapter
         binding.advicesRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
 

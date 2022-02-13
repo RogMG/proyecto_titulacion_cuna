@@ -1,6 +1,7 @@
 package mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.advices.domain.model
 
 import com.google.firebase.firestore.PropertyName
+import java.io.Serializable
 
 data class AdvicesModelDTO(
     @PropertyName("content")
@@ -13,5 +14,5 @@ data class AdvicesModelDTO(
     val linkImage: String = "",
     @PropertyName("title")
     val title: String = ""
-)
+): Serializable
 

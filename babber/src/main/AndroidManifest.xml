@@ -15,7 +15,8 @@
             android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".dashboard.advices.presentation.view.Advices_Description"
+            android:name=".dashboard.advices.presentation.view.AdvicesDescriptionActivity"
+            android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".viewpager.AdvicesActivity"
