@@ -38,6 +38,9 @@ class SettingsFragmentViewModel: ViewModel() {
     val babyUserImageId by lazy {
         MutableLiveData<String>()
     }
+    val saveBabyUserImageId by lazy {
+        MutableLiveData<String>()
+    }
 
     val notificationResponse by lazy {
         MutableLiveData<Boolean>()
@@ -66,7 +69,7 @@ class SettingsFragmentViewModel: ViewModel() {
             .downloadUrl
             .addOnSuccessListener {
                 userImageResponse.postValue(it)
-                babyUserImageId.postValue(id)
+                saveBabyUserImageId.postValue(id)
             }.addOnFailureListener {
                 notificationResponse.postValue(false)
             }

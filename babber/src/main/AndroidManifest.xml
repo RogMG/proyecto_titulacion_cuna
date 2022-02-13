@@ -11,7 +11,8 @@
         android:theme="@style/Theme.Proyectotitulacion"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".dashboard.monitor.presentation.view.UpdateBabyInfo"
+            android:name=".dashboard.monitor.presentation.view.UpdateBabyInfoActivity"
+            android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".dashboard.advices.presentation.view.Advices_Description"

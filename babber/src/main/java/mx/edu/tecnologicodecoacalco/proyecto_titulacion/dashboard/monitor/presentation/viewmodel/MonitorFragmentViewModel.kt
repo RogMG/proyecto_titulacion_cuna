@@ -1,20 +1,17 @@
 package mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.presentation.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.github.mikephil.charting.data.Entry
 import io.reactivex.rxjava3.core.Observable
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.model.BabyDTO
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
-import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.advices.domain.model.AdvicesModelDTO
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.model.BabyIdModel
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.model.BabyModel
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.model.BabyMonitorDTO
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.usecase.GetBabyDataUseCase
-import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.usecase.GetBabyLpmListenerUseCase
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.usecase.GetBabyLpmUseCase
 import java.util.concurrent.TimeUnit
-import kotlin.random.Random.Default.nextInt
 
 
 class MonitorFragmentViewModel: ViewModel() {
@@ -38,9 +35,12 @@ class MonitorFragmentViewModel: ViewModel() {
     val babyData by lazy {
         MutableLiveData<MutableList<BabyDTO>>()
     }
+    val babyUpdatedData by lazy {
+        MutableLiveData<MutableList<BabyDTO>>()
+    }
 
     val babyMonitorData by lazy {
-        MutableLiveData<MutableList<BabyMonitorDTO>>()
+        MutableLiveData<BabyModel>()
     }
 
     private var counter = 1F
@@ -68,9 +68,30 @@ class MonitorFragmentViewModel: ViewModel() {
             .addOnFailureListener {
 
             }
-
-
     }
+
+    fun getUpdateBabyInfo(email: String) {
+        val data = getDataUseCase.invoke(email)
+        babyDataList.clear()
+        data.addOnSuccessListener {
+            if(!it.isEmpty){
+                for (snapshot in it) {
+                    babyDataList.add(
+                        snapshot.toObject(
+                            BabyDTO::class.java
+                        )
+                    )
+                }
+            }else{
+                babyDataList
+            }
+            babyUpdatedData.postValue(babyDataList)
+        }
+            .addOnFailureListener {
+
+            }
+    }
+
 
 
     fun getLpmBaby(email: String){
@@ -86,15 +107,20 @@ class MonitorFragmentViewModel: ViewModel() {
     fun getLpmBabyFromService(email: String) {
         val data = getBabyLpmUseCase.invoke(email)
         val dataList = mutableListOf<BabyMonitorDTO>()
+        val idModel = mutableListOf<BabyIdModel>()
         data.addOnSuccessListener { it ->
             if(!it.isEmpty){
                 for (snapshot in it) {
+                    snapshot.id.let {
+                        idModel.add(BabyIdModel(it))
+                    }
                     snapshot.getString("monitor")?.let {
                         dataList.add(BabyMonitorDTO(it))
                     }
                 }
             }
-            babyMonitorData.postValue(dataList)
+            val matchModel = BabyModel(idModel,dataList)
+            babyMonitorData.postValue(matchModel)
         }.addOnFailureListener { }
     }
 

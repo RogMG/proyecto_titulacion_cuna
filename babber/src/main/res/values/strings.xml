@@ -28,4 +28,6 @@
     <string name="apellido_paterno">Apellido Paterno</string>
     <string name="apellido_materno">Apellido Materno</string>
     <string name="celular">Celular</string>
+    <string name="edad_semanas">Edad (Semanas)</string>
+    <string name="peso">Peso:</string>
 </resources>

@@ -1,6 +1,7 @@
 package mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.model
 
 import com.google.firebase.firestore.PropertyName
+import java.io.Serializable
 
 data class BabyDTO(
     @PropertyName("nombre")
@@ -12,10 +13,12 @@ data class BabyDTO(
     @PropertyName("edad")
     val edad: String = "",
     @PropertyName("monitor")
-    val monitor: String = "",
+    var monitor: String = "",
+    @PropertyName("imageId")
+    var imageId: String = "",
     @PropertyName("peso")
     val peso: String = "",
     @PropertyName("sexo")
     val sexo: String = ""
-)
+): Serializable
 

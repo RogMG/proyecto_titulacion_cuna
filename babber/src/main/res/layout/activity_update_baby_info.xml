@@ -4,58 +4,173 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".dashboard.monitor.presentation.view.UpdateBabyInfo">
+    android:paddingBottom="85dp"
+    tools:context=".dashboard.monitor.presentation.view.UpdateBabyInfoActivity">
 
     <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/name_settings_edit_text"
+        android:id="@+id/profile_update_monitor_image_view"
+        android:layout_width="393dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bebe"
+        app:layout_constraintBottom_toTopOf="@+id/name_update_monitor_text_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
-        android:id="@+id/name_settings_edit_text"
-        android:layout_width="wrap_content"
+        android:id="@+id/age_update_monitor_text_view"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="101dp"
-        android:layout_marginEnd="101dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
+        android:hint="@string/edad_semanas"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/father_last_settings_edit_text"
+        app:layout_constraintBottom_toTopOf="@+id/weight_update_monitor_text_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/label_sex_updated" />
 
     <EditText
-        android:id="@+id/father_last_settings_edit_text"
-        android:layout_width="wrap_content"
+        android:id="@+id/weight_update_monitor_text_view"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="98dp"
-        android:layout_marginEnd="104dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
+        android:hint="@string/peso_kg"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/close_session_settings_button"
+        app:layout_constraintBottom_toTopOf="@+id/save_update_monitor_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_settings_edit_text" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/age_update_monitor_text_view" />
 
     <Button
-        android:id="@+id/close_session_settings_button"
-        android:layout_width="wrap_content"
+        android:id="@+id/save_update_monitor_button"
+        android:layout_width="361dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="158dp"
-        android:layout_marginEnd="159dp"
-        android:text="Button"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/guardar_cambios"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/father_last_settings_edit_text" />
+        app:layout_constraintTop_toBottomOf="@+id/weight_update_monitor_text_view" />
+
+    <TextView
+        android:id="@+id/name_update_monitor_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/label_sex_updated"
+        app:layout_constraintEnd_toStartOf="@+id/father_update_monitor_text_view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_update_monitor_image_view"
+        tools:text="Jose Alejandro" />
+
+    <TextView
+        android:id="@+id/father_update_monitor_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/name_update_monitor_text_view"
+        app:layout_constraintEnd_toStartOf="@+id/mom_update_monitor_text_view"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/name_update_monitor_text_view"
+        tools:text="Martinez" />
+
+    <TextView
+        android:id="@+id/mom_update_monitor_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+
+        app:layout_constraintBaseline_toBaselineOf="@+id/name_update_monitor_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/father_update_monitor_text_view"
+        tools:text="Gonzalez" />
+
+    <TextView
+        android:id="@+id/sex_update_monitor_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+
+        app:layout_constraintBaseline_toBaselineOf="@+id/label_sex_updated"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/label_sex_updated"
+        tools:text="Masculino" />
+
+    <TextView
+        android:id="@+id/label_sex_updated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/sexo_label"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/age_update_monitor_text_view"
+        app:layout_constraintEnd_toStartOf="@+id/sex_update_monitor_text_view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_update_monitor_text_view" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/edad"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/age_update_monitor_text_view"
+        app:layout_constraintEnd_toStartOf="@+id/age_update_monitor_text_view"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/age_update_monitor_text_view" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/peso"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/weight_update_monitor_text_view"
+        app:layout_constraintEnd_toStartOf="@+id/weight_update_monitor_text_view"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/weight_update_monitor_text_view" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

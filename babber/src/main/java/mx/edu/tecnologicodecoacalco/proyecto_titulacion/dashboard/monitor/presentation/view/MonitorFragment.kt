@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -51,20 +52,31 @@ class MonitorFragment : Fragment() {
         })
 
         monitorFragmentViewModel.babyMonitorData.observe(requireActivity(), {
-            monitorFragmentViewModel.computeBabyData(it, userEmail)
+            monitorAdapter.setId(it.id)
+            monitorFragmentViewModel.computeBabyData(it.model, userEmail)
         })
 
         monitorFragmentViewModel.babyMonitor.observe(requireActivity(), {
             monitorAdapter.sendLpmData(it)
         })
 
+        monitorFragmentViewModel.babyUpdatedData.observe(requireActivity(), {
+            monitorAdapter.replaceBabyData(it)
+        })
+
         return view
     }
 
     fun setupMonitorInView(){
-        monitorAdapter = MonitorAdapter()
+        monitorAdapter = MonitorAdapter(context = requireActivity())
         binding.monitorRecyclerView.adapter = monitorAdapter
         binding.monitorRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        monitorFragmentViewModel.getUpdateBabyInfo(userEmail)
 
     }
 

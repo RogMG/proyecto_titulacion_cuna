@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.R
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.babyregister.presentation.view.BabyRegisterFragment
@@ -80,7 +81,8 @@ class SettingsFragment : Fragment() {
 
         }
         binding.closeSessionSettingsButton.setOnClickListener {
-
+            //FirebaseAuth.getInstance().signOut()
+            requireActivity().finish()
         }
 
         settingsFragmenViewModel.getUserData(email)
@@ -92,6 +94,10 @@ class SettingsFragment : Fragment() {
 
         settingsFragmenViewModel.userImageResponse.observe(requireActivity(), {
             Picasso.get().load(it).into(profileImage)
+        })
+
+        settingsFragmenViewModel.saveBabyUserImageId.observe(requireActivity(), {
+            imageId = it
         })
 
         settingsFragmenViewModel.babyUserImageId.observe(requireActivity(), {
@@ -121,7 +127,7 @@ class SettingsFragment : Fragment() {
     }
 
 
-    fun getImageFromGallery(){
+    private fun getImageFromGallery(){
         val photoPickerIntent = Intent(Intent.ACTION_GET_CONTENT)
         photoPickerIntent.type = "image/*"
         startActivityForResult(photoPickerIntent, USER_IMAGE_PICKER_CODE)
@@ -144,7 +150,7 @@ class SettingsFragment : Fragment() {
         }
     }
 
-    fun displayUserData(){
+    private fun displayUserData(){
         name.setText(data.nombre)
         fatherLastName.setText(data.apellidoPaterno)
         momLastName.setText(data.apellidoMaterno)
@@ -154,7 +160,7 @@ class SettingsFragment : Fragment() {
         }
     }
 
-    fun compareChanges(){
+    private fun compareChanges(){
         if(hasChangedProfileImage){
             settingsFragmenViewModel.setDeleteUserImage(imageId)
         }else{
@@ -162,7 +168,7 @@ class SettingsFragment : Fragment() {
         }
     }
 
-    fun sendDataToServer(){
+    private fun sendDataToServer(){
         val dataMap = hashMapOf<String, Any>()
         if(name.text.toString() != data.nombre){
             dataMap["nombre"] = name.text.toString()

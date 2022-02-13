@@ -1,8 +1,11 @@
 package mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.data.repository
 
+import android.net.Uri
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.UploadTask
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.advices.data.datasource.AdvicesDataSource
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.data.datasource.MonitorDataSource
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.repository.MonitorRepository
@@ -33,6 +36,33 @@ class MonitorRepositoryImp: MonitorRepository {
             .collection("babies")
             .document(babyId).get()
     }
+
+    override fun setUpdateBabyInfo(email: String, id: String, data: HashMap<String, Any>): Task<Void>{
+        return dataSource.getFirebaseFromService()
+            .collection("users").document(email)
+            .collection("babies").document(id)
+            .update(data)
+    }
+
+    override fun setDeleteBabyImage(imageId: String): Task<Void> {
+        return dataSource.getFirebaseStorageFromService()
+            .getReference("image/${imageId}")
+            .delete()
+    }
+
+    override fun setSaveBabyImage(uri: Uri, imageId: String): UploadTask {
+        return dataSource.getFirebaseStorageFromService()
+            .getReference("image/${imageId}")
+            .putFile(uri)
+    }
+
+    override fun getImageFromStorage(id: String): StorageReference {
+        return dataSource.getFirebaseStorageFromService()
+            .getReference("image/${id}")
+    }
+
+
+
 
 
 }

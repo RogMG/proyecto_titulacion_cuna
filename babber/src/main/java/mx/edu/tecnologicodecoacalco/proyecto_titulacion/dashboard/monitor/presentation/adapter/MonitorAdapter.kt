@@ -1,5 +1,6 @@
 package mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.presentation.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
@@ -9,19 +10,28 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.model.BabyDTO
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.model.BabyIdModel
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.presentation.view.UpdateBabyInfoActivity
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.MonitorCardViewBinding
 
 class MonitorAdapter(
-    private val babyModel: MutableList<BabyDTO> = mutableListOf()
+    private val babyModel: MutableList<BabyDTO> = mutableListOf(),
+    private val context: Context
 ) : RecyclerView.Adapter<MonitorAdapter.ViewHolder>() {
 
     private var babyChart = mutableListOf<LineData>()
+    private var babyId = mutableListOf<BabyIdModel>()
 
     fun sendLpmData(list: MutableList<MutableList<Entry>>) {
         for(position in 0 until list.size){
             babyChart[position] = LineData(LineDataSet(list[position], "Latidos Por Minuto"))
+            babyModel[position].monitor = list[position][list[position].size-1].y.toInt().toString()
         }
         notifyDataSetChanged()
+    }
+
+    fun setId(id: MutableList<BabyIdModel>){
+        babyId = id
     }
 
     fun sendBabyData(babyModel: MutableList<BabyDTO>){
@@ -41,7 +51,13 @@ class MonitorAdapter(
         notifyDataSetChanged()
     }
 
-    class ViewHolder(binding: MonitorCardViewBinding) : RecyclerView.ViewHolder(binding.root) {
+    fun replaceBabyData(babyModel: MutableList<BabyDTO>){
+        this.babyModel.clear()
+        this.babyModel.addAll(babyModel)
+        notifyDataSetChanged()
+    }
+
+    inner class ViewHolder(binding: MonitorCardViewBinding) : RecyclerView.ViewHolder(binding.root) {
         val nameText: TextView = binding.babyNameEditText
         val fatherLastName: TextView = binding.fatherLastNameMonitor
         val motherLastName: TextView = binding.motherLastNameMonitor
@@ -50,6 +66,11 @@ class MonitorAdapter(
         val weight: TextView = binding.weigthMonitorBaby
         val lpmtext: TextView = binding.ltmBaby
         val chartText: LineChart = binding.babyMonitorChart
+            init {
+                binding.root.setOnClickListener {
+                    UpdateBabyInfoActivity.launch(context, babyModel[adapterPosition], babyId[adapterPosition].id)
+                }
+            }
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
