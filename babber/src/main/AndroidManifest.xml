@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mx.edu.tecnologicodecoacalco.proyecto_titulacion">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,26 +14,32 @@
         <activity
             android:name=".dashboard.monitor.presentation.view.UpdateBabyInfoActivity"
             android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".dashboard.advices.presentation.view.AdvicesDescriptionActivity"
             android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".viewpager.AdvicesActivity"
             android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".dashboard.ActivityDashboard"
             android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".login.presentation.view.RegisterActivity"
             android:theme="@style/Theme.Proyectotitulacion.NoActionBar"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".login.presentation.view.LoginActivity"
             android:theme="@style/Theme.Proyectotitulacion.LoginTheme"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,6 +47,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name="mx.edu.tecnologicodecoacalco.proyecto_titulacion.utils.FirebaseBackgroundService"
+            android:exported="false"
+            android:process=":remote" >
+            <intent-filter>
+                <action android:name="mx.edu.tecnologicodecoacalco.proyecto_titulacion.utils.FirebaseBackgroundService" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="mx.edu.tecnologicodecoacalco.proyecto_titulacion.utils.StartFirebaseAtBoot"
+            android:exported="false"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" >
+                </action>
+            </intent-filter>
+        </receiver>
+
+
     </application>
 
 </manifest>

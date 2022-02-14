@@ -14,6 +14,8 @@ data class BabyDTO(
     val edad: String = "",
     @PropertyName("monitor")
     var monitor: String = "",
+    @PropertyName("estaEncendido")
+    var estaEncendido: String = "",
     @PropertyName("imageId")
     var imageId: String = "",
     @PropertyName("peso")

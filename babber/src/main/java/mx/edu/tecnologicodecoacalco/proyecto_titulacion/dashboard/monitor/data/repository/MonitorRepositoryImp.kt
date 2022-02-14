@@ -2,6 +2,7 @@ package mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.data.
 
 import android.net.Uri
 import com.google.android.gms.tasks.Task
+import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.storage.StorageReference
@@ -29,12 +30,12 @@ class MonitorRepositoryImp: MonitorRepository {
             .get()
     }
 
-    override fun getBabyLpmWithListener(email: String, babyId: String): Task<DocumentSnapshot> {
+    override fun getBabyLpmWithListener(email: String):CollectionReference {
         val db = dataSource.getFirebaseFromService()
         return db.collection("users")
             .document(email)
             .collection("babies")
-            .document(babyId).get()
+
     }
 
     override fun setUpdateBabyInfo(email: String, id: String, data: HashMap<String, Any>): Task<Void>{

@@ -9,6 +9,11 @@ import android.view.KeyEvent
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import com.google.firebase.FirebaseApp
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.R
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.advices.presentation.view.AdvicesFragment
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.appconection.AppConectionFragment
@@ -16,6 +21,10 @@ import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.babyregister.p
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.presentation.view.MonitorFragment
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.settings.presentation.view.SettingsFragment
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.ActivityDashboardBinding
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.utils.FirebaseBackgroundService
+
+
+
 
 class ActivityDashboard : AppCompatActivity() {
 
@@ -30,12 +39,14 @@ class ActivityDashboard : AppCompatActivity() {
         ActivityDashboardBinding.inflate(layoutInflater)
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        replaceFragmentView(MonitorFragment())
         binding.bottomNavigationBar.background = null
         binding.bottomNavigationBar.menu.getItem(2).isEnabled = false
-        replaceFragmentView(MonitorFragment())
         binding.bottomNavigationBar.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.monitor_fragment -> {
@@ -66,15 +77,20 @@ class ActivityDashboard : AppCompatActivity() {
     }
 
 
+
     fun replaceFragmentView(fragment: Fragment){
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(binding.containerViewsFragment.id, fragment)
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.setReorderingAllowed(false)
-        if(fragmentManager.backStackEntryCount > 0) {
+        if(fragmentManager.backStackEntryCount > 5) {
             fragmentManager.popBackStack()
         }
         fragmentTransaction.commit()
     }
+
+
+
+
 }

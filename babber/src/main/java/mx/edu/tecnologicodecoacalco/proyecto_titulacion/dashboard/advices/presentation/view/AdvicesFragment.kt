@@ -5,11 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.advices.presentation.adapter.AdvicesAdapter
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.advices.presentation.viewmodel.AdvicesFragmentViewModel
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.FragmentAdvicesBinding
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.utils.GenericDialog
 
 
 class AdvicesFragment : Fragment() {
@@ -22,6 +24,18 @@ class AdvicesFragment : Fragment() {
     private lateinit var advicesAdapter: AdvicesAdapter
 
     val advicesFragmentViewModel: AdvicesFragmentViewModel by viewModels()
+
+    private val dialog by lazy{
+        GenericDialog()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
+            dialog.dialogBuilderCloseSession(requireContext()) { requireActivity().finish() }.show()
+        }
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

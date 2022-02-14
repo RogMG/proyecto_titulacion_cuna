@@ -2,5 +2,6 @@ package mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domai
 
 data class BabyModel (
     val id: MutableList<BabyIdModel>,
-    val model: MutableList<BabyMonitorDTO>
+    val model: MutableList<BabyMonitorDTO>,
+    val babyName: MutableList<String>
     )

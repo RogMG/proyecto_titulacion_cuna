@@ -21,6 +21,7 @@ class MonitorAdapter(
 
     private var babyChart = mutableListOf<LineData>()
     private var babyId = mutableListOf<BabyIdModel>()
+    var isClicklable = false
 
     fun sendLpmData(list: MutableList<MutableList<Entry>>) {
         for(position in 0 until list.size){
@@ -68,7 +69,9 @@ class MonitorAdapter(
         val chartText: LineChart = binding.babyMonitorChart
             init {
                 binding.root.setOnClickListener {
-                    UpdateBabyInfoActivity.launch(context, babyModel[adapterPosition], babyId[adapterPosition].id)
+                    if(isClicklable){
+                        UpdateBabyInfoActivity.launch(context, babyModel[adapterPosition], babyId[adapterPosition].id)
+                    }
                 }
             }
     }
@@ -79,8 +82,6 @@ class MonitorAdapter(
                 .from(viewGroup.context)
             , viewGroup,
             false)
-
-
         return ViewHolder(binding)
     }
 

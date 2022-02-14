@@ -134,9 +134,12 @@ class UpdateBabyInfoActivity : AppCompatActivity() {
     }
 
     private fun compareChanges(){
-        if(hasChangedProfileImage){
+        if(hasChangedProfileImage && dataReceived.imageId.isNotEmpty()){
             updateBabyInfoActivityViewModel.setDeleteBabyImage(dataReceived.imageId)
-        }else{
+        }else if (hasChangedProfileImage && dataReceived.imageId.isEmpty()){
+            updateBabyInfoActivityViewModel.saveImageBaby(imageUri)
+        }
+        else{
             sendDataToServer()
         }
     }

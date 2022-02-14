@@ -9,18 +9,28 @@ import android.view.View
 import android.widget.Toast
 import android.widget.VideoView
 import androidx.activity.viewModels
+import com.google.firebase.FirebaseApp
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.R
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.ActivityMainBinding
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.presentation.viewmodel.LoginActivityViewModel
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.utils.SharedPreferencesData
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.viewpager.AdvicesActivity
 
 class LoginActivity : AppCompatActivity() {
+
+    companion object {
+        const val LOGIN_EMAIL = "EMAIL_USER_KEY"
+    }
 
     private lateinit var userEmail: String
     private lateinit var userPassword: String
 
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
+    }
+
+    private val sharedPreferences by lazy {
+        SharedPreferencesData()
     }
 
     val loginActivitityViewModel: LoginActivityViewModel by viewModels()
@@ -30,8 +40,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         startBackgroundVideo()
         binding.loginButton.setOnClickListener {
-           // getUserLogin()
-            AdvicesActivity.launch(this)
+            getUserLogin()
         }
 
         binding.registerButton.setOnClickListener {
@@ -39,8 +48,12 @@ class LoginActivity : AppCompatActivity() {
         }
 
         loginActivitityViewModel.loginLiveData.observe(this, {
-            Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
-            AdvicesActivity.launch(this)
+            if(it.isSuccesful){
+                Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+                AdvicesActivity.launch(this)
+            }else{
+                Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+            }
         }
         )
     }

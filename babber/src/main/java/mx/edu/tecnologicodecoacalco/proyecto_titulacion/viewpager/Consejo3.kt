@@ -26,6 +26,8 @@ class Consejo3 : Fragment() {
 
         binding.nextButtonAdviceThree.setOnClickListener {
             ActivityDashboard.launch(requireActivity())
+            requireActivity().finish()
+
         }
 
         return view

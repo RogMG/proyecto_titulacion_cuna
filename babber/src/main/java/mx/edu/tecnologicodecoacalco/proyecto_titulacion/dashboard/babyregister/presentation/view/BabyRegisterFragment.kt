@@ -19,11 +19,13 @@ import java.io.InputStream
 import android.provider.MediaStore
 
 import android.graphics.Bitmap
+import androidx.activity.addCallback
 import androidx.core.graphics.drawable.toBitmap
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.R
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.settings.presentation.view.SettingsFragment
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.utils.GenericDialog
 
 
 class BabyRegisterFragment : Fragment() {
@@ -33,8 +35,7 @@ class BabyRegisterFragment : Fragment() {
     }
 
     private var _binding: FragmentBabyRegisterBinding? = null
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+
     private val binding get() = _binding!!
 
     private var imageUri: Uri = Uri.EMPTY
@@ -42,10 +43,21 @@ class BabyRegisterFragment : Fragment() {
     private val hardwareCode: String by lazy {
         ""
     }
-
-    private lateinit var email: String
+    private var email = ""
 
     private val babyRegisterFragmentViewModel: BabyRegisterFragmentViewModel by viewModels()
+
+    private val dialog by lazy{
+        GenericDialog()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
+           dialog.dialogBuilderCloseSession(requireContext()) { requireActivity().finish() }.show()
+        }
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,7 +66,7 @@ class BabyRegisterFragment : Fragment() {
     ): View {
         _binding = FragmentBabyRegisterBinding.inflate(inflater, container, false)
         val view = binding.root
-        email = "rogelio@example.com"
+        Firebase.auth.currentUser?.email?.let { email = it }
         binding.imageViewBaby.setOnClickListener {
             getImageFromGallery()
         }

@@ -16,6 +16,8 @@ import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.R
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.babyregister.presentation.view.BabyRegisterFragment
@@ -23,6 +25,8 @@ import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.settings.domai
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.settings.presentation.viewmodel.SettingsFragmentViewModel
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.FragmentConsejo3Binding
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.FragmentSettingsBinding
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.presentation.view.LoginActivity
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.utils.GenericDialog
 import java.io.FileNotFoundException
 
 class SettingsFragment : Fragment() {
@@ -43,7 +47,7 @@ class SettingsFragment : Fragment() {
 
     private val settingsFragmenViewModel: SettingsFragmentViewModel by viewModels()
 
-    private val email: String = "rogelio@example.com"
+    private var email: String = ""
 
     private var imageUri: Uri = Uri.EMPTY
 
@@ -53,10 +57,13 @@ class SettingsFragment : Fragment() {
 
     private lateinit var data: UserDataModel
 
+    private val dialog by lazy{
+        GenericDialog()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
-
+            dialog.dialogBuilderCloseSession(requireContext()) { requireActivity().finish() }.show()
         }
 
     }
@@ -68,6 +75,7 @@ class SettingsFragment : Fragment() {
     ): View? {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         val view = binding.root
+        Firebase.auth.currentUser?.email?.let { email = it }
         profileImage = binding.profileSettingsImageView
         name = binding.nameSettingsEditText
         fatherLastName = binding.fatherLastSettingsEditText
@@ -81,8 +89,9 @@ class SettingsFragment : Fragment() {
 
         }
         binding.closeSessionSettingsButton.setOnClickListener {
-            //FirebaseAuth.getInstance().signOut()
+            FirebaseAuth.getInstance().signOut()
             requireActivity().finish()
+
         }
 
         settingsFragmenViewModel.getUserData(email)
