@@ -21,6 +21,8 @@ data class BabyDTO(
     @PropertyName("peso")
     val peso: String = "",
     @PropertyName("sexo")
-    val sexo: String = ""
+    val sexo: String = "",
+    @PropertyName("hardwareVinculado")
+    val hardwareVinculado: String = "",
 ): Serializable
 
