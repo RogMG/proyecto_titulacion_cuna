@@ -80,39 +80,6 @@ class MonitorFragmentViewModel: ViewModel() {
             }
     }
 
-    fun getLpmBaby(email: String){
-        disposable.add(Observable.interval(1, TimeUnit.SECONDS)
-            .observeOn(AndroidSchedulers.mainThread())
-            .doOnError { }
-            .subscribe {
-                getLpmBabyFromService(email)
-            })
-    }
-
-    fun getLpmBabyFromService(email: String) {
-        val data = getBabyLpmUseCase.invoke(email)
-        val dataList = mutableListOf<BabyMonitorDTO>()
-        val idModel = mutableListOf<BabyIdModel>()
-        val nameModel = mutableListOf<String>()
-        data.addOnSuccessListener { it ->
-            if(!it.isEmpty){
-                for (snapshot in it) {
-                    snapshot.id.let {
-                        idModel.add(BabyIdModel(it))
-                    }
-                    snapshot.getString("nombre")?.let {
-                        nameModel.add(it)
-                    }
-                    snapshot.getString("monitor")?.let {
-                        dataList.add(BabyMonitorDTO(it))
-                    }
-                }
-            }
-            val matchModel = BabyModel(idModel,dataList,nameModel)
-            babyMonitorData.postValue(matchModel)
-        }.addOnFailureListener { it.printStackTrace() }
-    }
-
     fun getLpmBabyFromServiceWithListener(email: String){
         val data = getBabyLpmWithListenerUsecase.invoke(email)
         val dataList = mutableListOf<BabyMonitorDTO>()

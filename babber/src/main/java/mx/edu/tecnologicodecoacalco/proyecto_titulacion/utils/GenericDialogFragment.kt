@@ -3,6 +3,7 @@ package mx.edu.tecnologicodecoacalco.proyecto_titulacion.utils
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
@@ -28,6 +29,8 @@ class GenericDialogFragment: DialogFragment() {
     private var negativeButton: String? = null
     private var hasCancelableCondition = false
 
+    private lateinit var r: Ringtone
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -40,6 +43,11 @@ class GenericDialogFragment: DialogFragment() {
         }
         vibrate()
         playRingtone()
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        r.stop()
     }
 
 
@@ -65,9 +73,8 @@ class GenericDialogFragment: DialogFragment() {
 
     fun playRingtone(){
         val notification: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
-        val r = RingtoneManager.getRingtone(requireContext().applicationContext,
-            notification
-        )
+        r = RingtoneManager.getRingtone(requireContext().applicationContext,
+            notification)
         r.play()
     }
 

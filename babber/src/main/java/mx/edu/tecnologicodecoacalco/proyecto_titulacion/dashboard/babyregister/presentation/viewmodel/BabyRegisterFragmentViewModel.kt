@@ -46,6 +46,7 @@ class BabyRegisterFragmentViewModel: ViewModel() {
             "apellidoMaterno" to apellidoMaterno,
             "edad" to edad,
             "monitor" to "0",
+            "estaEncendido" to "false",
             "peso" to peso,
             "sexo" to sexo,
             "imageId" to imageUuid,

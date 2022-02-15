@@ -18,6 +18,7 @@ import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.FragmentMoni
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.utils.GenericDialogFragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 import io.reactivex.rxjava3.schedulers.Schedulers
 
@@ -38,6 +39,10 @@ class MonitorFragment : Fragment() {
     private var userEmail = ""
 
     private var babyData = mutableListOf<BabyDTO>()
+
+    private val disposable by lazy {
+        CompositeDisposable()
+    }
 
     private val dialog by lazy{
         GenericDialog()
@@ -61,7 +66,6 @@ class MonitorFragment : Fragment() {
         Firebase.auth.currentUser?.email?.let { userEmail = it }
         setupMonitorInView()
 
-        monitorFragmentViewModel.getBabyInfo(userEmail)
         monitorFragmentViewModel.babyData.observe(requireActivity(), {
             monitorAdapter.sendBabyData(it)
             babyData = it
@@ -94,33 +98,39 @@ class MonitorFragment : Fragment() {
     }
 
     fun checkBabyData(lpmList: MutableList<BabyMonitorDTO>){
-        Observable.fromArray(lpmList)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .doOnError {
-                it.printStackTrace()
-            }
-            .subscribe {
-                it.forEachIndexed { index, babyMonitorDTO ->
-                    if(babyMonitorDTO.monitor.toInt() < 80 && babyData[index].estaEncendido.toBoolean() ){
-                        val genericDialog = parentFragmentManager.findFragmentByTag(GenericDialogFragment.TAG)
-                        if (genericDialog == null) {
-                            GenericDialogFragment
-                                .newInstance(
-                                    "Alerta",
-                                    "El bebe ${babyData[index].nombre} tiene bajo el ritmo cardiaco",
-                                    "Aceptar",
-                                    "",
-                                    true
-                                )
-                                .show(
-                                    parentFragmentManager, GenericDialogFragment.TAG)
+        disposable.add(
+            Observable.fromArray(lpmList)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnError {
+                    it.printStackTrace()
+                }
+                .subscribe {
+                    it.forEachIndexed { index, babyMonitorDTO ->
+                        if(babyMonitorDTO.monitor.toInt() < 80 && babyData[index].estaEncendido.toBoolean() ){
+                            val genericDialog = parentFragmentManager.findFragmentByTag(GenericDialogFragment.TAG)
+                            if (genericDialog == null) {
+                                GenericDialogFragment
+                                    .newInstance(
+                                        "Alerta",
+                                        "El bebe ${babyData[index].nombre} tiene bajo el ritmo cardiaco",
+                                        "Aceptar",
+                                        "",
+                                        true
+                                    )
+                                    .show(
+                                        parentFragmentManager, GenericDialogFragment.TAG)
+                            }
                         }
                     }
+                    it.clear()
                 }
-                it.clear()
-            }
+        )
+    }
 
+    override fun onPause() {
+        super.onPause()
+        disposable.clear()
     }
 
     override fun onResume() {
@@ -133,6 +143,9 @@ class MonitorFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        disposable.dispose()
     }
+
+
 
 }
