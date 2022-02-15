@@ -26,10 +26,6 @@ class MonitorFragmentViewModel: ViewModel() {
         GetBabyDataUseCase()
     }
 
-    private val babyDataList by lazy {
-        mutableListOf<BabyDTO>()
-    }
-
     private val getBabyLpmWithListenerUsecase by lazy{
         GetBabyLpmListenerUseCase()
     }
@@ -60,6 +56,7 @@ class MonitorFragmentViewModel: ViewModel() {
     }
 
     fun getBabyInfo(email: String) {
+        val babyDataList = mutableListOf<BabyDTO>()
         val data = getDataUseCase.invoke(email)
             data.addOnSuccessListener {
                 if(!it.isEmpty){
@@ -75,6 +72,28 @@ class MonitorFragmentViewModel: ViewModel() {
                 }
                 babyData.postValue(babyDataList)
             }
+            .addOnFailureListener {
+                it.printStackTrace()
+            }
+    }
+
+    fun getBabyInfoUpdate(email: String) {
+        val babyDataList = mutableListOf<BabyDTO>()
+        val data = getDataUseCase.invoke(email)
+        data.addOnSuccessListener {
+            if(!it.isEmpty){
+                for (snapshot in it) {
+                    babyDataList.add(
+                        snapshot.toObject(
+                            BabyDTO::class.java
+                        )
+                    )
+                }
+            }else{
+                babyDataList
+            }
+            babyUpdatedData.postValue(babyDataList)
+        }
             .addOnFailureListener {
                 it.printStackTrace()
             }

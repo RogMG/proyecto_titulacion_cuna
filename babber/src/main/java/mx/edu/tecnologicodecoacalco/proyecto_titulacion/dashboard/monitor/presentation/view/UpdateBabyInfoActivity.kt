@@ -53,7 +53,7 @@ class UpdateBabyInfoActivity : AppCompatActivity() {
 
     private var imageUri = Uri.EMPTY
 
-    private val email: String = "rogelio@example.com"
+    private var email: String = ""
 
     private var hasChangedProfileImage = false
 
@@ -67,6 +67,7 @@ class UpdateBabyInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         val extra = intent.extras
+        Firebase.auth.currentUser?.email?.let { email = it }
         dataReceived = extra?.getSerializable(MODEL_KEY) as BabyDTO
         idReceived = extra.getString(MODEL_ID_KEY) as String
         image = binding.profileUpdateMonitorImageView

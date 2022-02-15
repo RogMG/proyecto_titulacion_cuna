@@ -10,7 +10,10 @@ import android.widget.Toast
 import android.widget.VideoView
 import androidx.activity.viewModels
 import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.R
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.ActivityDashboard
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.databinding.ActivityMainBinding
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.presentation.viewmodel.LoginActivityViewModel
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.utils.SharedPreferencesData
@@ -38,6 +41,11 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
        super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        val user = Firebase.auth.currentUser
+        if (user != null) {
+            ActivityDashboard.launch(this)
+            finish()
+        }
         startBackgroundVideo()
         binding.loginButton.setOnClickListener {
             getUserLogin()

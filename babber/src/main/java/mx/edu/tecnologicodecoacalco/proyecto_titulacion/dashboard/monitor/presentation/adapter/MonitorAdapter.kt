@@ -24,9 +24,11 @@ class MonitorAdapter(
     var isClicklable = false
 
     fun sendLpmData(list: MutableList<MutableList<Entry>>) {
-        for(position in 0 until list.size){
-            babyChart[position] = LineData(LineDataSet(list[position], "Latidos Por Minuto"))
-            babyModel[position].monitor = list[position][list[position].size-1].y.toInt().toString()
+        if(babyChart.isNotEmpty()){
+            for(position in 0 until list.size){
+                babyChart[position] = LineData(LineDataSet(list[position], "Latidos Por Minuto"))
+                babyModel[position].monitor = list[position][list[position].size-1].y.toInt().toString()
+            }
         }
         notifyDataSetChanged()
     }

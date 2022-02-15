@@ -51,6 +51,8 @@ class BabyRegisterFragment : Fragment() {
         GenericDialog()
     }
 
+    private var hasChangedProfileImage = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
@@ -112,6 +114,7 @@ class BabyRegisterFragment : Fragment() {
                 imageUri = data?.data?: Uri.EMPTY
                 val imageAvatar= MediaStore.Images.Media.getBitmap(requireContext().contentResolver, imageUri)
                 binding.imageViewBaby.setImageBitmap(imageAvatar)
+                hasChangedProfileImage = true
             } catch (e: FileNotFoundException) {
                 e.printStackTrace()
                 Toast.makeText(requireContext(), "Algo salío mal", Toast.LENGTH_LONG).show()

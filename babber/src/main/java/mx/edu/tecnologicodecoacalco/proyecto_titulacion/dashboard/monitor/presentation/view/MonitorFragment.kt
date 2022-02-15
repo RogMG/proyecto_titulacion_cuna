@@ -65,7 +65,7 @@ class MonitorFragment : Fragment() {
         val view = binding.root
         Firebase.auth.currentUser?.email?.let { userEmail = it }
         setupMonitorInView()
-
+        monitorFragmentViewModel.getBabyInfo(userEmail)
         monitorFragmentViewModel.babyData.observe(requireActivity(), {
             monitorAdapter.sendBabyData(it)
             babyData = it
@@ -135,10 +135,8 @@ class MonitorFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        monitorFragmentViewModel.getBabyInfo(userEmail)
+        monitorFragmentViewModel.getBabyInfoUpdate(userEmail)
     }
-
-
 
     override fun onDestroyView() {
         super.onDestroyView()

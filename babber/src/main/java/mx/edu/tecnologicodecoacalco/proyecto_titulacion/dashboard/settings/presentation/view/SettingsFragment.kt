@@ -170,12 +170,15 @@ class SettingsFragment : Fragment() {
     }
 
     private fun compareChanges(){
-        if(hasChangedProfileImage){
+        if(hasChangedProfileImage && data.imageId.isNotEmpty()){
             settingsFragmenViewModel.setDeleteUserImage(imageId)
-        }else{
+        }else if(hasChangedProfileImage && data.imageId.isEmpty()){
+            settingsFragmenViewModel.saveBabyPhoto(imageUri)
+        }else {
             sendDataToServer()
         }
     }
+
 
     private fun sendDataToServer(){
         val dataMap = hashMapOf<String, Any>()
