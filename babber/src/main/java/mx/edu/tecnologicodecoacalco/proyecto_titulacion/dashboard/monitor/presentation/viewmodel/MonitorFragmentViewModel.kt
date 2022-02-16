@@ -3,23 +3,20 @@ package mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.prese
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.github.mikephil.charting.data.Entry
-import io.reactivex.rxjava3.core.Observable
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.model.BabyDTO
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.model.BabyIdModel
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.model.BabyModel
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.model.BabyMonitorDTO
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.usecase.GetBabyDataUseCase
 import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.usecase.GetBabyLpmListenerUseCase
-import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.usecase.GetBabyLpmUseCase
-import java.util.concurrent.TimeUnit
+import mx.edu.tecnologicodecoacalco.proyecto_titulacion.dashboard.monitor.domain.usecase.GetUserNumberUseCase
 
 
 class MonitorFragmentViewModel: ViewModel() {
 
-    private val getBabyLpmUseCase by lazy{
-        GetBabyLpmUseCase()
+    private val getUserPhone by lazy{
+        GetUserNumberUseCase()
     }
 
     private val getDataUseCase by lazy{
@@ -47,6 +44,10 @@ class MonitorFragmentViewModel: ViewModel() {
 
     val babyMonitorData by lazy {
         MutableLiveData<BabyModel>()
+    }
+
+    val userPhoneResponse by lazy {
+        MutableLiveData<String>()
     }
 
     private var counter = 1F
@@ -150,6 +151,15 @@ class MonitorFragmentViewModel: ViewModel() {
         babyMonitor.postValue(babyInfo)
         counter += 1
 
+    }
+
+    fun getUserPhone(email: String){
+        getUserPhone.invoke(email)
+            .addOnSuccessListener { document ->
+                document.getString("celular")?.let {
+                    userPhoneResponse.postValue(it)
+                }
+            }
     }
 
     fun stopFromEmitting(){

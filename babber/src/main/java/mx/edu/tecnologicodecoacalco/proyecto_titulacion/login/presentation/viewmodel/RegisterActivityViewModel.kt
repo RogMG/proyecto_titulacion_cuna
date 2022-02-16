@@ -13,9 +13,11 @@ class RegisterActivityViewModel: ViewModel() {
     val notificationResponse by lazy{
         MutableLiveData<Boolean>()
     }
-
     val registerAuthLiveData by lazy{
         MutableLiveData<Boolean>()
+    }
+    val registerUidUser by lazy{
+        MutableLiveData<String>()
     }
 
     private val setRegisterUseCase by lazy {
@@ -26,6 +28,7 @@ class RegisterActivityViewModel: ViewModel() {
         SetRegisterInfoUseCase()
     }
 
+
     fun setRegisterUser(
         password: String,
         email: String
@@ -33,16 +36,14 @@ class RegisterActivityViewModel: ViewModel() {
         setRegisterUseCase.invoke(
             password = password,
             email = email
-        ).addOnCompleteListener{
-            if(it.isSuccessful){
-                registerAuthLiveData.postValue(true)
-            }else{
-                notificationResponse.postValue(false)
-            }
+        ).addOnSuccessListener{
+            registerUidUser.postValue(it.user?.uid)
+        }.addOnFailureListener {
+            registerAuthLiveData.postValue(false)
         }
     }
 
-    fun setRegisterUserInfo(email: String, data: HashMap<String, Serializable>){
+    fun setRegisterUserInfo(email: String, data: HashMap<String, Any>){
         setRegisterInfoUseCase.invoke(
             email, data
         ).addOnSuccessListener {

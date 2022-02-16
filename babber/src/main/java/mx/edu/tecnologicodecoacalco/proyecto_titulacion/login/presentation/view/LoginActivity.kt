@@ -1,5 +1,9 @@
 package mx.edu.tecnologicodecoacalco.proyecto_titulacion.login.presentation.view
 
+import android.Manifest
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +13,8 @@ import android.view.View
 import android.widget.Toast
 import android.widget.VideoView
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -22,7 +28,14 @@ import mx.edu.tecnologicodecoacalco.proyecto_titulacion.viewpager.AdvicesActivit
 class LoginActivity : AppCompatActivity() {
 
     companion object {
-        const val LOGIN_EMAIL = "EMAIL_USER_KEY"
+
+        const val PHONE_PERMISSION = 67845
+
+
+        fun launch(context: Context){
+            val intent = Intent(context, LoginActivity::class.java)
+            context.startActivity(intent)
+        }
     }
 
     private lateinit var userEmail: String
@@ -32,9 +45,6 @@ class LoginActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private val sharedPreferences by lazy {
-        SharedPreferencesData()
-    }
 
     val loginActivitityViewModel: LoginActivityViewModel by viewModels()
 
@@ -46,6 +56,7 @@ class LoginActivity : AppCompatActivity() {
             ActivityDashboard.launch(this)
             finish()
         }
+        checkPermission()
         startBackgroundVideo()
         binding.loginButton.setOnClickListener {
             getUserLogin()
@@ -84,6 +95,42 @@ class LoginActivity : AppCompatActivity() {
         super.onResume()
         startBackgroundVideo()
     }
+
+    fun checkPermission(){
+        if (ContextCompat.checkSelfPermission(
+                this, Manifest.permission.CALL_PHONE
+            ) == PackageManager.PERMISSION_DENIED){
+            requestPermissions(arrayOf(Manifest.permission.CALL_PHONE),
+                PHONE_PERMISSION
+            )
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int,
+                                            permissions: Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            PHONE_PERMISSION -> {
+                if ((grantResults.isNotEmpty() &&
+                            grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    Toast.makeText(this, "Ahora podrás llamar desde la aplicacion!",Toast.LENGTH_SHORT).show()
+                } else {
+                    AlertDialog.Builder(this)
+                        .setTitle("IMPORTANTE")
+                        .setMessage("Al no haber concedido los permisos no podrás llamar desde la aplicación, siempre puedes cambiar esta configuracion desde los ajustes.")
+                        .setPositiveButton("Aceptar") { e ,i ->
+                            e.dismiss()
+                        }.create().show()
+                }
+                return
+            }
+
+            else -> {
+                // Ignore all other requests.
+            }
+        }
+    }
+
 
     private fun startBackgroundVideo(){
         val videoview = binding.videoViewLogin

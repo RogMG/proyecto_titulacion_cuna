@@ -11,10 +11,10 @@ data class UserDataModel (
     val celular: String = "",
     @PropertyName("correo")
     val correo: String = "",
-    @PropertyName("dispositivosVinculados")
-    val dispositivosVinculados: List<String> = emptyList(),
+    @PropertyName("userToken")
+    val userToken: String = "",
     @PropertyName("imageId")
     val imageId: String = "",
     @PropertyName("nombre")
     val nombre: String = ""
-        )
+)

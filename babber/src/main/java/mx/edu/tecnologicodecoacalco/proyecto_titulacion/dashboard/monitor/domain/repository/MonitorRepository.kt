@@ -16,4 +16,5 @@ interface MonitorRepository {
     fun setUpdateBabyInfo(email: String, id: String, data: HashMap<String, Any>): Task<Void>
     fun setDeleteBabyImage(imageId: String): Task<Void>
     fun setSaveBabyImage(uri: Uri, imageId:String): UploadTask
+    fun getUserPhone(email: String): Task<DocumentSnapshot>
 }

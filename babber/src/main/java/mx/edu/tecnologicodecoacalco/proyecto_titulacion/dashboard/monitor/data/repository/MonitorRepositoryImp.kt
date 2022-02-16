@@ -62,6 +62,12 @@ class MonitorRepositoryImp: MonitorRepository {
             .getReference("image/${id}")
     }
 
+    override fun getUserPhone(email: String): Task<DocumentSnapshot> {
+        return dataSource.getFirebaseFromService()
+            .collection("users").document(email)
+            .get()
+    }
+
 
 
 

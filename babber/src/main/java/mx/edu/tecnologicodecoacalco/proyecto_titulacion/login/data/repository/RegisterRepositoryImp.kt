@@ -17,7 +17,7 @@ class RegisterRepositoryImp: RegisterRepository {
         return auth.createUserWithEmailAndPassword(email, password)
     }
 
-    override fun setRegisterInfo(email: String, data: HashMap<String, Serializable>): Task<Void> {
+    override fun setRegisterInfo(email: String, data: HashMap<String, Any>): Task<Void> {
        return dataSource.registerUserToFirestore()
             .collection("users")
             .document(email)

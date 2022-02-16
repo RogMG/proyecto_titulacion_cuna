@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">BabberLink</string>
+    <string name="conectados">Conectados</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="boton_agregar_beb">Boton agregar bebé</string>
+    <string name="cerrar_sesi_n">Cerrar sesión</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="guardar_cambios">Guardar cambios</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido_paterno">Apellido Paterno</string>
+    <string name="apellido_materno">Apellido Materno</string>
+    <string name="celular">Celular</string>
+    <string name="qr_code">QR Code</string>
+    <string name="qr_description_text">Lo que se muestra aquí es tu código QR, compartelo solo con las personas con las que quisieras ayudar en su Babber</string>
+    <string name="nombre_propietario">Nombre del propietario:</string>
 </resources>

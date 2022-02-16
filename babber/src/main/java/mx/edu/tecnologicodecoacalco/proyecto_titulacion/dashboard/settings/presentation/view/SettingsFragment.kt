@@ -63,7 +63,10 @@ class SettingsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
-            dialog.dialogBuilderCloseSession(requireContext()) { requireActivity().finish() }.show()
+            dialog.dialogBuilderCloseSession(requireContext()) {
+                LoginActivity.launch(requireActivity())
+                requireActivity().finish()
+            }.show()
         }
 
     }

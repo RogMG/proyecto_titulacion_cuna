@@ -10,5 +10,5 @@ import java.io.Serializable
 interface RegisterRepository {
     fun setRegisterAuth(password: String, email: String): Task<AuthResult>
 
-    fun setRegisterInfo(email: String, data: HashMap<String, Serializable>): Task<Void>
+    fun setRegisterInfo(email: String, data: HashMap<String, Any>): Task<Void>
 }

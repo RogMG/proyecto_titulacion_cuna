@@ -10,7 +10,7 @@ class SetRegisterInfoUseCase {
         RegisterRepositoryImp()
     }
 
-    operator fun invoke(email: String, data: HashMap<String, Serializable>): Task<Void> {
+    operator fun invoke(email: String, data: HashMap<String, Any>): Task<Void> {
         return repository.setRegisterInfo(email, data)
     }
 

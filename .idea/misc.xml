@@ -40,13 +40,27 @@
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3141025641025641" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babber/src/main/res/layout/activity_advices_description.xml" value="0.30085470085470084" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babber/src/main/res/layout/activity_dashboard.xml" value="0.30085470085470084" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babber/src/main/res/layout/activity_main.xml" value="0.14536340852130325" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babber/src/main/res/layout/activity_register.xml" value="0.30085470085470084" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babber/src/main/res/layout/activity_update_baby_info.xml" value="0.33" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babber/src/main/res/layout/fragment_app_conection.xml" value="0.30085470085470084" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babber/src/main/res/layout/fragment_baby_register.xml" value="0.25" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babber/src/main/res/layout/fragment_blank.xml" value="0.30085470085470084" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babber/src/main/res/layout/fragment_monitor.xml" value="0.30085470085470084" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babber/src/main/res/layout/fragment_settings.xml" value="0.33" />
         <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babber/src/main/res/layout/monitor_card_view.xml" value="0.33" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babberlink/src/main/res/drawable-v24/ic_agregarbebe.xml" value="0.3141025641025641" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babberlink/src/main/res/drawable-v24/ic_ajustes.xml" value="0.3141025641025641" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babberlink/src/main/res/drawable-v24/ic_baseline_home_24.xml" value="0.3141025641025641" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babberlink/src/main/res/layout/activity_dashboard.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babberlink/src/main/res/layout/activity_login.xml" value="0.14536340852130325" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babberlink/src/main/res/layout/activity_register.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babberlink/src/main/res/layout/fragment_appconnection.xml" value="0.30085470085470084" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babberlink/src/main/res/layout/fragment_connectedbabies.xml" value="0.30085470085470084" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babberlink/src/main/res/layout/fragment_monitor.xml" value="0.30085470085470084" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babberlink/src/main/res/layout/fragment_settings.xml" value="0.14703425229741018" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babberlink/src/main/res/layout/monitor_card_view.xml" value="0.33" />
+        <entry key="..\:/Users/Rogelio MG/Documents/GitHub/proyecto_titulacion_cuna/babberlink/src/main/res/menu/bottom_navigation_menu.xml" value="0.30085470085470084" />
       </map>
     </option>
   </component>

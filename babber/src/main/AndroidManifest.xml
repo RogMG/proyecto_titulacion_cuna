@@ -3,6 +3,7 @@
     package="mx.edu.tecnologicodecoacalco.proyecto_titulacion">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -49,23 +50,12 @@
         </activity>
 
         <service
-            android:name="mx.edu.tecnologicodecoacalco.proyecto_titulacion.utils.FirebaseBackgroundService"
-            android:exported="false"
-            android:process=":remote" >
+            android:name=".utils.FirebaseBackgroundService"
+            android:exported="false">
             <intent-filter>
-                <action android:name="mx.edu.tecnologicodecoacalco.proyecto_titulacion.utils.FirebaseBackgroundService" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-        <receiver
-            android:name="mx.edu.tecnologicodecoacalco.proyecto_titulacion.utils.StartFirebaseAtBoot"
-            android:exported="false"
-            >
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" >
-                </action>
-            </intent-filter>
-        </receiver>
 
 
     </application>

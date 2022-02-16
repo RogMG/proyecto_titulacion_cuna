@@ -44,6 +44,8 @@ class MonitorFragment : Fragment() {
         CompositeDisposable()
     }
 
+    private var phone = ""
+
     private val dialog by lazy{
         GenericDialog()
     }
@@ -62,29 +64,33 @@ class MonitorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMonitorBinding.inflate(inflater, container, false)
+
         val view = binding.root
         Firebase.auth.currentUser?.email?.let { userEmail = it }
         setupMonitorInView()
+
+        monitorFragmentViewModel.getUserPhone(userEmail)
         monitorFragmentViewModel.getBabyInfo(userEmail)
         monitorFragmentViewModel.babyData.observe(requireActivity(), {
             monitorAdapter.sendBabyData(it)
             babyData = it
             monitorFragmentViewModel.getLpmBabyFromServiceWithListener(userEmail)
         })
-
         monitorFragmentViewModel.babyMonitorData.observe(requireActivity(), {
             monitorAdapter.setId(it.id)
             checkBabyData(it.model)
+            monitorFragmentViewModel.getBabyInfoUpdate(userEmail)
             monitorFragmentViewModel.computeBabyData(it.model, userEmail)
         })
-
         monitorFragmentViewModel.babyMonitor.observe(requireActivity(), {
             monitorAdapter.sendLpmData(it)
             monitorAdapter.isClicklable = true
         })
-
         monitorFragmentViewModel.babyUpdatedData.observe(requireActivity(), {
             monitorAdapter.replaceBabyData(it)
+        })
+        monitorFragmentViewModel.userPhoneResponse.observe(requireActivity(), {
+            phone = it
         })
 
         return view
@@ -114,9 +120,10 @@ class MonitorFragment : Fragment() {
                                     .newInstance(
                                         "Alerta",
                                         "El bebe ${babyData[index].nombre} tiene bajo el ritmo cardiaco",
-                                        "Aceptar",
-                                        "",
-                                        true
+                                        "LLAMAR",
+                                        "CERRAR",
+                                        true,
+                                        phone
                                     )
                                     .show(
                                         parentFragmentManager, GenericDialogFragment.TAG)
