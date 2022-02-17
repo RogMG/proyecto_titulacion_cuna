@@ -6,14 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import mx.edu.tecnologicodecoacalco.babberlink.R
-import mx.edu.tecnologicodecoacalco.babberlink.dashboard.appconection.AppConectionFragment
+import mx.edu.tecnologicodecoacalco.babberlink.dashboard.appconection.presentation.view.AppConectionFragment
 import mx.edu.tecnologicodecoacalco.babberlink.dashboard.monitor.presentation.view.MonitorFragment
 import mx.edu.tecnologicodecoacalco.babberlink.dashboard.settings.presentation.view.SettingsFragment
 import mx.edu.tecnologicodecoacalco.babberlink.databinding.ActivityDashboardBinding
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
-import mx.edu.tecnologicodecoacalco.babberlink.utils.GenericDialog
 
 
 class ActivityDashboard : AppCompatActivity() {

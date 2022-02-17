@@ -102,7 +102,6 @@ class RegisterActivity : AppCompatActivity() {
             "apellidoMaterno" to momLastName.text.toString(),
             "celular" to cellPhone.text.toString(),
             "correo" to eMail.text.toString(),
-            "userToken" to "" ,
             "imageId" to ""
         )
         registerActivityViewModel.setRegisterUserInfo(email, data)

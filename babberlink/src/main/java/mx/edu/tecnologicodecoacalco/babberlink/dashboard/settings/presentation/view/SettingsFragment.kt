@@ -70,7 +70,7 @@ class SettingsFragment : Fragment() {
     ): View? {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         val view = binding.root
-      //  Firebase.auth.currentUser?.email?.let { email = it }
+        Firebase.auth.currentUser?.email?.let { email = it }
         profileImage = binding.profileSettingsImageView
         name = binding.nameSettingsEditText
         fatherLastName = binding.fatherLastSettingsEditText
@@ -89,7 +89,7 @@ class SettingsFragment : Fragment() {
 
         }
 
-        //settingsFragmenViewModel.getUserData(email)
+        settingsFragmenViewModel.getUserData(email)
 
         settingsFragmenViewModel.userDataResponse.observe(requireActivity(), {
             data = it

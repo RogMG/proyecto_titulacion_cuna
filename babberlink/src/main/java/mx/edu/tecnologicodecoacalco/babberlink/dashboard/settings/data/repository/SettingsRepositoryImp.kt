@@ -20,7 +20,7 @@ class SettingsRepositoryImp: SettingsRepository {
 
     override fun getUserDataFromFirestore(email: String): Task<DocumentSnapshot> {
         return dataSource.getFirebaseFromService()
-            .collection("users")
+            .collection("linkUsers")
             .document(email).get()
     }
 
@@ -31,7 +31,7 @@ class SettingsRepositoryImp: SettingsRepository {
 
     override fun setUserDataUpdate(email: String, data: HashMap<String, Any>): Task<Void> {
         return dataSource.getFirebaseFromService()
-            .collection("users").document(email)
+            .collection("linkUsers").document(email)
             .update(data)
     }
 

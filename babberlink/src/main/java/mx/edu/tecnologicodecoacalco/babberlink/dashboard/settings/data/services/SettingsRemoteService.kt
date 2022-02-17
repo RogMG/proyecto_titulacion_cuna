@@ -16,12 +16,12 @@ class SettingsRemoteService: SettingsService {
         FirebaseStorage.getInstance()
     }
 
-    override fun getFireStoreService(): FirebaseFirestore {
-        return firestore
-    }
-
     override fun getFirebaseStorageService(): FirebaseStorage {
         return firebaseStorage
+    }
+
+    override fun getFireStoreService(): FirebaseFirestore {
+        return firestore
     }
 
 

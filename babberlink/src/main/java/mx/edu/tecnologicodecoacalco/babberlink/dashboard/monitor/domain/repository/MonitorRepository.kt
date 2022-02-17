@@ -9,8 +9,7 @@ import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
 
 interface MonitorRepository {
-    fun getBabyDataFromFirestore(email: String): Task<QuerySnapshot>
-    fun getBabyLpmFromFirestore(email: String): Task<QuerySnapshot>
-    fun getBabyLpmWithListener(email: String): CollectionReference
+    fun getUserData(token: String): Task<QuerySnapshot>
+    fun getTokensFromServer(email: String): Task<DocumentSnapshot>
     fun getImageFromStorage(id: String): StorageReference
 }

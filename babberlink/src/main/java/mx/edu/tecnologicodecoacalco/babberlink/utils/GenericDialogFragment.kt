@@ -1,9 +1,12 @@
 package mx.edu.tecnologicodecoacalco.babberlink.utils
 
+import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
@@ -18,6 +21,8 @@ import android.media.RingtoneManager
 
 import android.media.Ringtone
 import android.net.Uri
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 
 
 class GenericDialogFragment: DialogFragment() {
@@ -27,6 +32,7 @@ class GenericDialogFragment: DialogFragment() {
     private var positiveButton: String? = null
     private var negativeButton: String? = null
     private var hasCancelableCondition = false
+    private var number:String?  = null
 
     private lateinit var r: Ringtone
 
@@ -38,6 +44,7 @@ class GenericDialogFragment: DialogFragment() {
             positiveButton = it.getString(ARG_POSITIVE)
             negativeButton = it.getString(ARG_NEGATIVE)
             hasCancelableCondition = it.getBoolean(ARG_CANCELABLE)
+            number = it.getString(ARG_NUMBER)
 
         }
         vibrate()
@@ -54,7 +61,9 @@ class GenericDialogFragment: DialogFragment() {
         return AlertDialog.Builder(requireContext())
             .setTitle(title)
             .setMessage(message)
-            .setPositiveButton(positiveButton) { _,_ -> this.dismiss() }
+            .setPositiveButton(positiveButton) { _,_ ->
+                checkPermission()
+            }
             .setNegativeButton(negativeButton) { _,_ -> this.dismiss() }
             .setCancelable(hasCancelableCondition)
             .create()
@@ -77,35 +86,53 @@ class GenericDialogFragment: DialogFragment() {
         r.play()
     }
 
-
-        companion object {
-            const val TAG = "GenericDialog"
-            private const val ARG_TITLE = "titleArg"
-            private const val ARG_MESSAGE = "titleMessage"
-            private const val ARG_POSITIVE = "titlePositive"
-            private const val ARG_NEGATIVE = "titleNegative"
-            private const val ARG_CANCELABLE = "Cancelable"
-
-            private val pattern = longArrayOf( 0, 1000, 1000, 1000, 1000, 1000)
-
-            @JvmStatic
-            fun newInstance(
-                title: String = "",
-                message: String = "",
-                positiveButton: String = "",
-                negativeButton: String = "",
-                hasCancelableCondition: Boolean = false,
-            ) =
-                GenericDialogFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_TITLE, title)
-                        putString(ARG_MESSAGE, message)
-                        putString(ARG_POSITIVE, positiveButton)
-                        putString(ARG_NEGATIVE, negativeButton)
-                        putBoolean(ARG_CANCELABLE, hasCancelableCondition)
-
-                    }
-                }
+    fun checkPermission(){
+        if (ContextCompat.checkSelfPermission(
+                requireContext(), Manifest.permission.CALL_PHONE
+            ) == PackageManager.PERMISSION_DENIED){
+            Toast.makeText(requireContext(), "No podemos hacer la llamada porque no haz concedido permisos, hazlo manualmente", Toast.LENGTH_LONG).show()
+        }else{
+            startCall(requireContext(), number)
         }
+    }
+
+    fun startCall(context: Context,number: String? = ""){
+        val callIntent = Intent(Intent.ACTION_CALL)
+        callIntent.data = Uri.parse("tel:$number")
+        context.startActivity(callIntent)
+    }
+
+
+    companion object {
+        const val TAG = "GenericDialog"
+        private const val ARG_TITLE = "titleArg"
+        private const val ARG_MESSAGE = "titleMessage"
+        private const val ARG_POSITIVE = "titlePositive"
+        private const val ARG_NEGATIVE = "titleNegative"
+        private const val ARG_CANCELABLE = "Cancelable"
+        private const val ARG_NUMBER = "phoneNumber"
+
+        private val pattern = longArrayOf( 0, 1000, 1000, 1000, 1000, 1000)
+
+        @JvmStatic
+        fun newInstance(
+            title: String = "",
+            message: String = "",
+            positiveButton: String = "",
+            negativeButton: String = "",
+            hasCancelableCondition: Boolean = false,
+            number: String
+        ) =
+            GenericDialogFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_TITLE, title)
+                    putString(ARG_MESSAGE, message)
+                    putString(ARG_POSITIVE, positiveButton)
+                    putString(ARG_NEGATIVE, negativeButton)
+                    putBoolean(ARG_CANCELABLE, hasCancelableCondition)
+                    putString(ARG_NUMBER, number)
+                }
+            }
+    }
 
 }

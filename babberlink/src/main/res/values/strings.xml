@@ -13,4 +13,5 @@
     <string name="qr_code">QR Code</string>
     <string name="qr_description_text">Lo que se muestra aquí es tu código QR, compartelo solo con las personas con las que quisieras ayudar en su Babber</string>
     <string name="nombre_propietario">Nombre del propietario:</string>
+    <string name="correo_electronico">Correo Electronico</string>
 </resources>

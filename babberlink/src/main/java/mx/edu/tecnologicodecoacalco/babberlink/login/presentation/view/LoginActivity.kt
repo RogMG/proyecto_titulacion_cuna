@@ -47,6 +47,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         val user = Firebase.auth.currentUser
         if (user != null) {
+            ActivityDashboard.launch(this)
             finish()
         }
         requestPermissions(arrayOf(Manifest.permission.CALL_PHONE),
@@ -54,8 +55,7 @@ class LoginActivity : AppCompatActivity() {
         )
         startBackgroundVideo()
         binding.loginButton.setOnClickListener {
-            ActivityDashboard.launch(this)
-            //getUserLogin()
+            getUserLogin()
         }
 
         binding.registerButton.setOnClickListener {
@@ -65,6 +65,7 @@ class LoginActivity : AppCompatActivity() {
         loginActivitityViewModel.loginLiveData.observe(this, {
             if(it.isSuccesful){
                 Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+                ActivityDashboard.launch(this)
             }else{
                 Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
             }
